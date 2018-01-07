@@ -1,0 +1,72 @@
+body {
+    font: 100%/1.5 Georgia, 'Times New Roman', Times, serif;
+    color: #222;
+}
+
+/* responsive images */
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* hide screen-reader only text. https://webaim.org/techniques/css/invisiblecontent/ */
+.clip {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+a {
+    color: #BD561F;
+    text-decoration: none;
+}
+
+h1, h2, h3, p {margin: 1rem 0 2rem;}
+
+h1, h2, h3 {
+    font-weight: bold;
+    line-height: 1.2;
+}
+h1 {font-size: 1.8rem;}
+h2 {font-size: 1.4rem;}
+h3 {font-size: 1.3rem;}
+p {font-size: 1.2rem;}
+figcaption, small {font-size: 1rem;}
+
+header, article, aside, footer {padding: 1rem;}
+
+header { background: #555;}
+header img {
+    width: 128px;
+    margin: 0 auto;
+}
+
+article {border-bottom: 1px solid #ddd;}
+
+section {margin-top: 4rem;}
+
+figcaption {
+    color: #666;
+    margin: 1rem 0 2rem;
+}
+
+footer {
+    background: #eee;
+    line-height: 1.2;
+    text-align: center;
+}
+footer a {color: #AF501D;}
+
+.read-more {
+    background: #BD561F;
+    color: #fff;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+/* https://css-tricks.com/css-content/ */
+.read-more:after {
+    content:  " \00bb";
+}
