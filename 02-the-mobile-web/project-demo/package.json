@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "htmlhint": "htmlhint --config .htmlhintrc **/*.html",
+    "pretest": "npm run htmlhint",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "Anwar Montasir",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.2.4",
+    "copy-webpack-plugin": "^4.3.1",
     "css-loader": "^0.28.8",
     "extract-loader": "^1.0.1",
     "file-loader": "^1.1.6",
