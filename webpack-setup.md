@@ -6,9 +6,9 @@
 2 `npm i webpack webpack-dev-server html-loader html-webpack-plugin htmlhint copy-webpack-plugin`
    (install packages)
 
-3 create a *src* directory including the files *index.html* and *main.js*
+3 create a *src* directory including the files **index.html** and **main.js**
 
-4 create a file at the root called *webpack.config.js*
+4 create a file at the root called **webpack.config.js**
 
 ```
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -42,7 +42,7 @@ module.exports = {
 };
 ```
 
-5 edit the scripts section of *package.json*
+5 edit the scripts section of **package.json**
 ```
 "scripts": {
     "htmlhint": "htmlhint --config .htmlhintrc **/*.html",
