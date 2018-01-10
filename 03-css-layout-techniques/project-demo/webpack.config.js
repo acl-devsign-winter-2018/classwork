@@ -9,7 +9,7 @@ module.exports = {
   },
   plugins: [
     new HtmlPlugin({ template: `./src/index.html` }),
-    new HtmlPlugin({ template: `./src/forms-matter.html`, filename: `froms-matter.html` }),
+    new HtmlPlugin({ template: `./src/forms-matter.html`, filename: `forms-matter.html` }),
     new CopyWebpackPlugin([
       // in output use images folder
       {from: 'src/images', to: 'images'}
