@@ -1,6 +1,6 @@
 #Flexbox Demo
 
-Add this CSS to your *main.css*
+Add this CSS to your **main.css**
 
 ```
 .container {
