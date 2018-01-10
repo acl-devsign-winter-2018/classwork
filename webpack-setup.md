@@ -111,7 +111,7 @@ module.exports = {
     "tagname-lowercase": true,
     "attr-lowercase": true,
     "attr-value-double-quotes": true,
-    "doctype-first": true,
+    "doctype-first": false,
     "tag-pair": true,
     "spec-char-escape": true,
     "id-unique": true,
