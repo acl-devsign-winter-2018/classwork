@@ -9,8 +9,7 @@ module.exports = {
   },
   plugins: [
     new HtmlPlugin({ template: `./src/index.html` }),
-    new HtmlPlugin({ template: `./src/second-page.html`, filename: `second-page.html` }),
-    new HtmlPlugin({ template: `./src/third-page.html`, filename: `third-page.html` }),
+    new HtmlPlugin({ template: `./src/forms-matter.html`, filename: `froms-matter.html` }),
     new CopyWebpackPlugin([
       // in output use images folder
       {from: 'src/images', to: 'images'}

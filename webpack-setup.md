@@ -95,7 +95,17 @@ module.exports = {
   },
 ```
 
-7) at the root, create a **.htmlhintrc** file.
+7) at the root, add a **postcss.config.js** file.
+```
+module.exports = {
+    plugins: [
+        require('precss'),
+        require('autoprefixer')
+    ]
+}
+```
+
+8) at the root, create a **.htmlhintrc** file.
 ```
 {
     "tagname-lowercase": true,
