@@ -38,7 +38,7 @@ header, article, aside, footer {padding: 1rem;}
 
 header { background: #555;}
 header img {
-    width: 128px;
+    max-width: 128px;
     margin: 0 auto;
 }
 
