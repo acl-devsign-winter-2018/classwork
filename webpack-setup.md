@@ -1,9 +1,9 @@
-# Webpack Setup, class 1
+# Webpack Setup
 
 1) `npm init` 
    (creates package.json)
 
-2) `npm i autoprefixer copy-webpack-plugin css-loader extract-loader file-loader html-loader html-webpack-plugin htmlhint postcss-loader precss style-loader webpack webpack-dev-server`
+2) `npm i -D autoprefixer copy-webpack-plugin css-loader extract-loader file-loader html-loader html-webpack-plugin htmlhint postcss-loader precss style-loader webpack webpack-dev-server`
    
    see docs:
 
@@ -29,7 +29,9 @@ import './css/reset.css';
 import './css/main.css';
 ```
 
-4) inside your *src* directory, create two new files: *reset.css* and *main.css*. I've been using the [MeyerWeb CSS Reset](https://meyerweb.com/eric/tools/css/reset/), with thoughtful modifications.
+4) inside your *src* directory, create two new files: *reset.css* and *main.css*. 
+
+   For *reset.css* I've been copying from the [MeyerWeb CSS Reset](https://meyerweb.com/eric/tools/css/reset/), with thoughtful modifications.
 
 5) create a file at the root called **webpack.config.js**
 
