@@ -94,3 +94,19 @@ module.exports = {
     "build": "webpack"
   },
 ```
+
+7) at the root, create a **.htmlhintrc** file.
+```
+{
+    "tagname-lowercase": true,
+    "attr-lowercase": true,
+    "attr-value-double-quotes": true,
+    "doctype-first": true,
+    "tag-pair": true,
+    "spec-char-escape": true,
+    "id-unique": true,
+    "src-not-empty": true,
+    "attr-no-duplication": true,
+    "title-require": true
+}
+```
