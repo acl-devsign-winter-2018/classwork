@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "htmlhint": "htmlhint --config .htmlhintrc **/*.html",
+    "pretest": "npm run htmlhint",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "Anwar Montasir",
   "license": "ISC",
