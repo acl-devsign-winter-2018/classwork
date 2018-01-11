@@ -1,16 +1,8 @@
-body {
-    color: #222;
-    font: 300 100%/1.5 Helvetica, Arial, sans-serif;
-    padding: 1rem;
-    max-width: 1024px;
-    margin: 0 auto;
-}
-h1 {
-    font-size: 2rem;
-    border-bottom: 1px solid #222;
-    margin-bottom: .5rem;
-}
+#Flexbox Demo
 
+Add this CSS to your **main.css**
+
+```
 .container {
     background: pink;
     border: 1px solid #555;
@@ -72,3 +64,4 @@ h1 {
 .flex-1 {flex: 1;}
 .flex-2 {flex: 2;}
 .flex-3 {flex: 3;}
+```
