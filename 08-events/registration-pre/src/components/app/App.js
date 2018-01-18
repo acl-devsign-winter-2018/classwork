@@ -11,7 +11,7 @@ const template = new Template(html);
 
 const map = new Map();
 map.set('#books', Books);
-map.set('#register', Register);
+map.set('#auth', Register);
 
 export default class App {
 

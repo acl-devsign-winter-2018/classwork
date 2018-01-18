@@ -1,16 +1,18 @@
 <form class="register">
   <label>
-    Name:
-    <input name="name">
+    <div>Name:</div>
+    <input name="name" required>
   </label>
   <label>
-    Email:
-    <input name="email">
+    <div>Email:</div>
+    <input type="email" name="email">
   </label>
   <label>
-    Password:
+    <div>Password:</div>
     <input name="password" type="password">
+    <button class="show-password">👁</button>
   </label>
 
   <button type="submit">Register</button>
+  
 </form>
