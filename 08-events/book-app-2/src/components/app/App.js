@@ -9,10 +9,23 @@ import { removeChildren } from '../dom';
 
 const template = new Template(html);
 
+const map = new Map();
+map.set('#books', Books);
+map.set('#auth', Register);
+
 export default class App {
 
-  setPage() {
+  constructor() {
+    window.onhashchange = () => {
+      this.setPage();
+    };
+  }
 
+  setPage() {
+    const Component = map.get(window.location.hash) || Home;
+    const component = new Component();
+    removeChildren(this.main);
+    this.main.appendChild(component.render());
   }
 
   render() {

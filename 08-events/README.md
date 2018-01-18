@@ -47,8 +47,8 @@ DOM Events and Form Validation
 
 #### Subscribing
 
-* `.addEventListener('event', handler)`
 * `.onevent = handler`
+* `.addEventListener('event', handler)`
 
 #### Router
 * `onhashchange`
