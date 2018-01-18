@@ -1,6 +1,5 @@
 <h2>Register</h2>
 <p>Provide your information below to create an account.</p>
-<p class="registration-error"></p>
 <form class="register">
   <fieldset>
     
@@ -15,11 +14,17 @@
     <p class="error"></p>
     
     <label for="password">Password:</label>
-    <input name="password" id="password" type="password" minlength="6" required>
-    <p class="error"></p>
-    <p class="password-description">Your password should contain at least...</p>
-    <button class="show-password">Show</button>
+    <div id="pwd">
+        <input name="password" id="password" type="password" minlength="6" required>
+        <p class="error"></p>
+        <button class="show-password">Show</button>
+    </div>
     
+    
+    <p class="password-description">Your password should contain at least...</p>
+    
+    
+
   </fieldset>
   <button type="submit">Register</button>
   
