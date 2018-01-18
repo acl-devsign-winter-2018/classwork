@@ -1,63 +1,41 @@
 import Template from '../Template';
 import html from './app.html';
 import './app.css';
-import Search from '../search/Search';
-import Paging from '../search/Paging';
-import BookList from '../books/BookList';
-import { searchBooks } from '../../services/booksApi';
+import Header from './Header';
+import Books from '../books/Books.js';
+import Home from '../home/Home.js';
+import Register from '../account/Register';
+import { removeChildren } from '../dom';
 
 const template = new Template(html);
 
+const map = new Map();
+map.set('#books', Books);
+map.set('#register', Register);
+
 export default class App {
 
-  handleSearch(searchTerm) {
-    this.searchTerm = searchTerm;
-    this.pageIndex = 0;
-    this.runSearch()
+  constructor() {
+    window.onhashchange = () => {
+      this.setPage();
+    };
   }
 
-  handlePaging(pageIndex) {
-    this.pageIndex = pageIndex;
-    this.runSearch();
-  }
-
-  runSearch() {
-
-    this.loading.classList.remove('hidden');
-
-    searchBooks(this.searchTerm, this.pageIndex)
-      .then(data => {
-        const books = data.items;
-        const total = data.totalItems;
-        
-        const booksSection = this.booksSection;
-
-        while(booksSection.hasChildNodes()) {
-          booksSection.removeChild(booksSection.lastChild);
-        }
-
-        const bookList = new BookList(books);
-        booksSection.appendChild(bookList.render());
-
-        this.paging.update(this.pageIndex, 40, total);
-        this.loading.classList.add('hidden');
-      });
+  setPage() {
+    const Component = map.get(window.location.hash) || Home;
+    const component = new Component();
+    removeChildren(this.main);
+    this.main.appendChild(component.render());
   }
 
   render() {
     const dom = template.clone();
+    
+    dom.querySelector('header').appendChild(new Header().render());
 
-    this.loading = dom.getElementById('loading');
-    this.booksSection = dom.getElementById('books');
-
-    const searchSection = dom.getElementById('search');
-    const search = new Search(searchTerm => this.handleSearch(searchTerm));
-    searchSection.appendChild(search.render());
-
-    const pagingSection = dom.getElementById('paging');
-    this.paging = new Paging(pageIndex => this.handlePaging(pageIndex));
-    pagingSection.appendChild(this.paging.render());
-
+    this.main = dom.querySelector('main');
+    this.setPage();
+    
     return dom;
   }
 }

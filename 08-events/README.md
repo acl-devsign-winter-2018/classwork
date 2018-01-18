@@ -4,11 +4,18 @@ DOM Events and Form Validation
 ## Misc, Feedback, Questions, Issues
 * 
 
+## Resource
+1. DevTools (open during development)
+1. Error Messages
+  * actual error message
+  * file and line number
+
 ## Agenda
 
 ### Project Review
 
 * Webpack Config
+* ESLint Config
 * Template
 * Service Caching
 

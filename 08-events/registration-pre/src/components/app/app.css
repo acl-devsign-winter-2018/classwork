@@ -6,23 +6,34 @@ main {
   display: none;
 }
 
-/* hide screen-reader only text. https://webaim.org/techniques/css/invisiblecontent/ */
-.clip {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-}
+header {
 
-#loading {
-  position: absolute;
-  z-index: 1;
-  top: 0; bottom: 0;
-  right: 0; left: 0;
-  color: blue;
-  background: white;
-  opacity: .7;
-  text-align: center;
-  padding-top: 100px;
+  margin-bottom: 25px;
+
+  h1 {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 50px;
+      padding-right: 10px;
+    }
+  }
+
+  nav {
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        list-style: none;
+        padding: 20px;
+        padding-left: 0;
+      }
+    }
+  }
+
 }
 
 footer {
@@ -33,20 +44,4 @@ footer {
   width: 100%;
   text-align: center;
   padding: 10px 0;
-}
-@media screen and (min-width: 640px) {
-  #books ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-@media screen and (min-width: 640px) and (max-width: 960px) {
-  #books ul li {
-    width: 50%
-  }
-}
-@media screen and (min-width: 960px) {
-  #books ul li {
-    width: 33%
-  }
 }

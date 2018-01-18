@@ -1,6 +1,6 @@
 import html from './search.html';
 import './search.css';
-import Template from '../Template';
+import Template from '../../Template';
 
 const template = new Template(html);
 
