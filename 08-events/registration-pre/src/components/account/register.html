@@ -1,18 +1,22 @@
+<h2>Register</h2>
+<p>Provide your information below to create an account.</p>
 <form class="register">
-  <label>
-    <div>Name:</div>
-    <input name="name" required>
-  </label>
-  <label>
-    <div>Email:</div>
-    <input type="email" name="email">
-  </label>
-  <label>
-    <div>Password:</div>
-    <input name="password" type="password">
-    <button class="show-password">👁</button>
-  </label>
+  <fieldset>
+    
+    <legend>New Account Information</legend>
+    
+    <label for="name">Name:</label>
+    <input name="name" id="name" type="text" required>
+    
+    <label for="email">Email:</label>
+    <input name="email" id="email" type="email" required>
+    
+    <label for="password">Password:</label>
+    <input name="password" id="password" type="password" minlength="6">
 
+    <p class="password-description">Your password should contain at least...</p>
+
+  </fieldset>
   <button type="submit">Register</button>
   
 </form>
