@@ -1,3 +1,8 @@
+form {
+  width: 100%;
+  max-width: 640px;
+}
+
 /* want to hide fieldset/legend but keep the form accessible?
    http://chadkuehn.com/hidden-accessible-fieldsets/ */
 
@@ -19,10 +24,20 @@ label {display: block;}
 input {
   box-sizing: border-box;
   width: 100%;
-  max-width: 640px;
   border: 1px solid #555;
   padding: .5rem;
   margin-bottom: 1rem;
+}
+
+#pwd {position: relative;}
+#pwd button {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  background: #555;
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
 }
 
 .password-description {
@@ -30,7 +45,7 @@ input {
   font-size: .8rem;
 }
 
-button {
+button[type=submit] {
   background: steelblue;
   color: white;
   border: none;
