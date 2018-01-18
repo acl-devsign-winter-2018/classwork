@@ -2,13 +2,37 @@ DOM Events and Form Validation
 ===
 
 ## Misc, Feedback, Questions, Issues
-* 
+* Stretch Goals
+* Review "Template"
+* ?
 
 ## Resource
 1. DevTools (open during development)
 1. Error Messages
-  * actual error message
-  * file and line number
+  * Start at the top
+  * Actual error message
+    * Google the actual error message
+      * put double quotes
+      * clarify domain
+        * add library or framework name
+        * javascript
+  * File and line number
+  * Stack Overflow
+    1. Scan Question, but
+    2. Go to Accepted Answer
+    3. Check dates
+1. In-class code example
+1. Read the docs
+  * For JS, use MDN (not W3C Schools)
+  * MDN:
+    * Mozilla (Firefox), Google (Chrome), Microsoft (Edge)
+    * Highly technical (presumptions about what you know)
+    * Browser Compatibly, experimental, polyfills
+  * Source Docs for Library or Framework
+1. People
+  * Peers
+  * Instruction Staff
+
 
 ## Agenda
 
@@ -25,6 +49,10 @@ DOM Events and Form Validation
 
 * `.addEventListener('event', handler)`
 * `.onevent = handler`
+
+#### Router
+* `onhashchange`
+* Dictionary (strategy pattern) of components
 
 #### Types
 
@@ -102,7 +130,6 @@ Options:
 #### Styling
 
 * `:valid` and `:invalid`
-* DEMO: custom error approach
 
 #### Post-Submit Validation
 
@@ -110,7 +137,3 @@ Options:
 * Format Data
 * Call API
 * Respond to Success or Error
-
-#### Router
-* `onhashchange`
-* Dictionary (strategy pattern) of components

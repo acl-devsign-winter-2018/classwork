@@ -39,6 +39,10 @@ button {
   padding: .25rem .5rem;
 }
 
+.registration-error {
+  color: red;
+}
+
 .error {
   visibility: hidden;
   color: red;
