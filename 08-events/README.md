@@ -68,6 +68,31 @@ DOM Events and Form Validation
 
 * Pre vs Post
 
+#### Constraint Validation (html markup)
+
+* `require`
+* `type`
+* `min` and `max`
+* `regex`
+
+#### Adding JavaScript
+
+Why?
+
+1. Timing - validation does not occur until submit
+2. Error Message - at the whim of the browser, may be very general
+3. Validation - thing you want to validate isn't part of HTML Forms Validation
+
+Options:
+
+* force reporting of validation
+  * Pro: fail earlier
+  * Con: traps user
+* Custom messages
+  * Try regex first
+  * Use `title` attribute
+  * Use .setCustomValidity
+
 #### Validity API
 
 * '.setValidation([error-message])`

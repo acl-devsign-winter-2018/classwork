@@ -6,10 +6,6 @@ const template = new Template(html);
 
 export default class Register {
 
-  constructor() {
-    this.showPassword = false;
-  }
-
   handleSubmit(form) {
     const data = new FormData(form);
     const obj = {};
@@ -17,22 +13,57 @@ export default class Register {
     console.log(obj);
   }
 
-  handleShowPassword(show) {
-    this.showPassword = show;
-    this.password.type = show ? 'text' : 'password';
+  handleToggleShowPassword() {
+    const type = this.password.type;
+    this.password.type = type === 'password' ? 'text' : 'password';
+    this.showPassword.textContent = type === 'password' ? 'Hide' : 'Show';
   }
 
   render() {
     const dom = template.clone();
 
-    dom.querySelector('form').addEventListener('submit', event => {
+    const form = dom.querySelector('form');
+    
+    form.addEventListener('submit', event => {
       event.preventDefault();
       this.handleSubmit(event.target);
     });
 
-    this.password = dom.querySelector('input[name=password]');
-    this.handleShowPassword(false);
+    // form.addEventListener('blur', event => {
+    //   const element = event.srcElement;
+    //   if(element.checkValidity()) return;
+    //   setTimeout(() => {
+    //     form.reportValidity();
+    //   }, 10);
+    // }, true);
+
+    // form.addEventListener('blur', event => {
+    //   const element = event.srcElement;
+    //   element.setAttribute('data-dirty', '');
+    // }, true);
+
+    this.password = dom.querySelector('input[name=password]'); 
+    
+    const handler = ({ target }) => {
+      target.setCustomValidity('');
+      if(!target.checkValidity()) return;
+      
+      const valid = checkPassword(target.value);
+      if(!valid) {
+        target.setCustomValidity('Password must contain at least one uppercase character');
+      }
+    };
+    
+    this.password.addEventListener('keyup', handler);
+    this.password.addEventListener('paste', handler);
+    
+    this.showPassword = dom.querySelector('button.show-password');
+    this.showPassword.addEventListener('click', () => this.handleToggleShowPassword());
 
     return dom;
   }
 }
+
+const checkPassword = password => {
+  return password.toLowerCase() !== password;
+};
