@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     filename: 'bundle.js',
-    path: `${__dirname}/build`
+    path: `${__dirname}/build`,
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -19,7 +19,7 @@ module.exports = {
           loader: 'html-loader',
           options: {
             interpolate: true,
-            attrs: false
+            // attrs: false
           }
         }
       },
@@ -43,6 +43,15 @@ module.exports = {
 
           }
         ]
+      },
+      {
+        test: /\.(jpg|png|svg)$/,
+        use: {
+          loader: 'url-loader',
+          // options: {
+          //   limit: 25000,
+          // },
+        },
       }
     ]
   }

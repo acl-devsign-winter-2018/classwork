@@ -32,6 +32,7 @@
     "postcss-loader": "^2.0.10",
     "precss": "^2.0.0",
     "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.10.0",
     "wrap-loader": "^0.2.0",
