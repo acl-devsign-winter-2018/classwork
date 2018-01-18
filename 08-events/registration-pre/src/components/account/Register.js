@@ -37,10 +37,11 @@ export default class Register {
     //   }, 10);
     // }, true);
 
-    // form.addEventListener('blur', event => {
-    //   const element = event.srcElement;
-    //   element.setAttribute('data-dirty', '');
-    // }, true);
+    form.addEventListener('blur', event => {
+      const element = event.srcElement;
+      element.setAttribute('data-dirty', '');
+      element.nextElementSibling.textContent = element.validationMessage;
+    }, true);
 
     this.password = dom.querySelector('input[name=password]'); 
     
