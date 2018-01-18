@@ -4,3 +4,5 @@ export const removeChildren = node => {
     node.removeChild(node.lastChild);
   }
 };
+
+export default 42;
