@@ -1,0 +1,13 @@
+body {
+    font: 400 100%/1.5 Helvetica, Arial, sans-serif;
+    padding: 1rem;
+}
+h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+h2 {
+    font-weight: bold;
+    font-size: 1.4rem;
+}

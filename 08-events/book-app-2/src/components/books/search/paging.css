@@ -1,0 +1,15 @@
+.total {font-size: .9rem;}
+
+#prev-next {
+  margin: 1rem 0;
+
+  button {
+      font-size: .9rem;
+      background: #fff;
+      border: 1px solid #555;
+  }
+  
+  button:disabled {
+      background: #ddd;
+  }
+}
