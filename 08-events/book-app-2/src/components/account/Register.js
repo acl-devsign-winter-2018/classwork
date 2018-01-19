@@ -14,6 +14,12 @@ export default class Register {
     console.log('would have submitted', obj);
   }
 
+  handleToggleShowPassword() {
+    const type = this.password.type;
+    this.password.type = type === 'password' ? 'text' : 'password';
+    this.showPassword.textContent = type === 'password' ? 'Hide' : 'Show';
+  }
+
   render() {
     const dom = template.clone();
 
@@ -26,32 +32,28 @@ export default class Register {
 
     form.addEventListener('blur', event => {
       const element = event.srcElement;
-      if(element.type === 'submit') return;
+      if(element.type === 'submit' || element.type === 'button') return;
       element.nextElementSibling.textContent = element.validationMessage;
-
-      const valid = form.checkValidity();
-      if(!valid) {
-        this.submit.setAttribute('disabled', 'true');
-      }
-      else {
-        this.submit.removeAttribute('disabled');
-      }
+      this.submit.disabled = !form.checkValidity();
     }, true);
 
     // Attempt to control display of build-it validation reporting:
     // form.addEventListener('change', event => {
+    //   console.log('change', new Date());
     //   const element = event.srcElement;
+    //   element.dataset.dirty = true;
     //   if(element.checkValidity()) return;
-    //   setTimeout(() => {
-    //     element.reportValidity();
-    //   }, 10);
+    //   setTimeout(() => element.reportValidity());
     // });
 
     this.submit = dom.querySelector('button[type=submit');
 
-    const password = dom.querySelector('input[name=password]');
+    this.showPassword = dom.querySelector('button[type=button]');
+    this.showPassword.addEventListener('click', () => this.handleToggleShowPassword());
 
-    password.addEventListener('keyup', event => {
+    this.password = dom.querySelector('input[name=password]');
+
+    this.password.addEventListener('keyup', event => {
       const target = event.target;
       target.setCustomValidity('');
       if(!target.checkValidity()) return;

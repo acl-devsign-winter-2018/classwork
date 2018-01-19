@@ -13,6 +13,7 @@ fieldset legend {
   position:absolute;
   left: -5000px;
 }
+
 fieldset {
   border: 0;
   padding: 0;
@@ -21,27 +22,42 @@ fieldset {
 
 label {display: block;}
 
+$input-height: 2rem;
+
 input {
   box-sizing: border-box;
   width: 100%;
+  height: $input-height;
   border: 1px solid #555;
   padding: .5rem;
-  margin-bottom: 1rem;
+  margin-bottom: .25rem;
 }
 
-#pwd {position: relative;}
-#pwd button {
-  position: absolute;
-  right: .5rem;
-  top: .5rem;
-  background: #555;
-  color: #fff;
-  border: none;
-  text-transform: uppercase;
+$show-pwd-width: 5rem;
+
+#pwd {
+  position: relative;
+  
+  button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: $input-height;
+    width: $show-pwd-width;
+    background: #555;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+  }
+
+  input {
+    width: calc(100% - $show-pwd-width);
+  }
 }
 
 .password-description {
-  margin-top: -.75rem;
+  color: #777777;
+  margin-bottom: .25rem;
   font-size: .8rem;
 }
 
@@ -59,10 +75,17 @@ button[type=submit] {
 }
 
 .error {
+  height: 1rem;
+  font-size: .75rem;
   visibility: hidden;
+  margin-bottom: .5rem;
   color: red;
 }
 
-input:invalid + .error {
-  visibility: visible;
+input:invalid{
+  /*border: 1px solid red;*/
+
+  + .error {
+    visibility: visible;
+  }
 }

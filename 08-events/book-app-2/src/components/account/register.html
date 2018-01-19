@@ -17,18 +17,16 @@
     <p class="error"></p>
     
     <label for="password">Password:</label>
+    <p class="password-description">
+      Your password should be at least 6 characters and contain at least one capital letter</p>
     <div id="pwd">
         <input name="password" id="password" type="password" minlength="6" required>
         <p class="error"></p>
-        <button class="show-password">Show</button>
+        <button type="button" class="show-password" tabindex="-1">Show</button>
     </div>
     
-    
-    <p class="password-description">Your password should contain at least...</p>
-    
-    
-
   </fieldset>
+
   <button type="submit" disabled>Register</button>
   
 </form>
