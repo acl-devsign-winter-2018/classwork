@@ -27,7 +27,6 @@ export default class Register {
     form.addEventListener('blur', event => {
       const element = event.srcElement;
       if(element.type === 'submit') return;
-
       element.nextElementSibling.textContent = element.validationMessage;
 
       const valid = form.checkValidity();
@@ -39,13 +38,14 @@ export default class Register {
       }
     }, true);
 
-    // form.addEventListener('blur', event => {
+    // Attempt to control display of build-it validation reporting:
+    // form.addEventListener('change', event => {
     //   const element = event.srcElement;
     //   if(element.checkValidity()) return;
     //   setTimeout(() => {
-    //     form.reportValidity();
+    //     element.reportValidity();
     //   }, 10);
-    // }, true);
+    // });
 
     this.submit = dom.querySelector('button[type=submit');
 
