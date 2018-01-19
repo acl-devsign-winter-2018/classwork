@@ -10,7 +10,10 @@
     <p class="error"></p>
     
     <label for="email">Email:</label>
-    <input name="email" id="email" type="email" required>
+    <input name="email" id="email" type="email" 
+      pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" 
+      title="Please provde an email in the form of you@somedomain.sometld"
+      required>
     <p class="error"></p>
     
     <label for="password">Password:</label>
@@ -26,6 +29,6 @@
     
 
   </fieldset>
-  <button type="submit">Register</button>
+  <button type="submit" disabled>Register</button>
   
 </form>

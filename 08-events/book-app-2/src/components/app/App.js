@@ -41,9 +41,7 @@ export default class App {
     const dom = template.clone();
     
     dom.querySelector('header').appendChild(new Header().render());
-
     this.main = dom.querySelector('main');
-    
     this.setPage();
     
     return dom;

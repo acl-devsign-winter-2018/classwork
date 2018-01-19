@@ -61,6 +61,7 @@ DOM Events and Form Validation
   * Special Keys
 * Mouse
   * `click` and `double-click`
+  * `move`
 * Touch
   * "Translated" to `click`
   * Unique gestures: `swipe`, `pinch`
