@@ -20,3 +20,12 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 .wrapper > * {padding: 10px;}
+
+/* https://rachelandrew.co.uk/archives/2016/04/12/flexible-sized-grids-with-auto-fill-and-minmax/ */
+.listing {
+    list-style: none;
+    margin: 2em;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+  }

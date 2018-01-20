@@ -1,0 +1,31 @@
+body {background: #999;}
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    /* 10 columns, 100px wide */
+    grid-template-columns: repeat(10, 100px); 
+    /* 10 columns, equal width, based on available space */
+    grid-template-columns: repeat(10, 1fr);
+    /* fit as many 100px columns as available space allows */
+    grid-template-columns: repeat(auto-fill, 100px);
+    /* fit as many 100px columns as available space allows,
+       then use the 1fr unit to adjust based on available space */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+.box {
+    background: #ccc;
+    padding: 10px;
+}
+/* 
+interesting column/row span effects
+.a {
+    grid-column: auto / span 2;
+}
+.k {
+    grid-column: auto / span 3;
+}
+.g {
+    grid-column: auto / span 2;
+    grid-row: auto / span 2;
+} 
+*/
