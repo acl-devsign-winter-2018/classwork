@@ -33,6 +33,7 @@ h1 {
       "footer";
 }
 
+/* https://css-tricks.com/child-and-sibling-selectors/ */
 .wrapper > * {
     border: 2px solid #f80;
     background-color: #fe9;
