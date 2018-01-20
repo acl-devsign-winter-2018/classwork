@@ -1,6 +1,6 @@
 body {
-    font: 400 100%/1.5 Helvetica, Arial, sans-serif;
-    color: #432;
+    font: 400 100%/1.4 Helvetica, Arial, sans-serif;
+    color: #222;
     padding: 1rem;
 }
 h1 {
@@ -8,7 +8,7 @@ h1 {
     font-size: 2rem;
     line-height: 1.25;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #987;
+    border-bottom: 1px solid #888;
 }
 
 /* we are using grid-template-areas to create the layout */

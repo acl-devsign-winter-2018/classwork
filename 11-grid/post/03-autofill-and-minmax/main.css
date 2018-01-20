@@ -1,4 +1,8 @@
-body {background: #999;}
+body {
+    font: 400 100%/1.4 Helvetica, Arial, sans-serif;
+    color: #222;
+    background: #999;
+}
 .wrapper {
     display: grid;
     grid-gap: 10px;
