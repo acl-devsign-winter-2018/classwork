@@ -1,6 +1,6 @@
 html {height: 100%;}
 body {
-    font: 400 100%/1.5 Helvetica, Arial, sans-serif;
+    font: 400 100%/1.4 Helvetica, Arial, sans-serif;
     color: #432;
     min-height: 100%;
 }
@@ -27,5 +27,27 @@ body {
     margin: 2em;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
-  }
+    grid-template-columns: repeat(auto-fill,minmax(250px, 1fr));
+}
+.listing li {
+    background: lightgoldenrodyellow;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.listing h2 {
+    background: lightseagreen;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.body {padding: 10px;}
+.body p {margin-bottom: 1rem;}
+.cta {
+    /* https://hackernoon.com/flexbox-s-best-kept-secret-bd3d892826b6 */
+    margin-top: auto;
+    border-top: 2px solid lightseagreen;
+    padding: 10px;
+    text-align: center;
+}
