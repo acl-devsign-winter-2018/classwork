@@ -1,0 +1,17 @@
+/* app.css */
+.main-head   {grid-area: header;  background: lightpink;}
+.content     {grid-area: content; background: lightblue;}
+.main-footer {grid-area: footer;  background: lightpink;}
+
+.wrapper {
+    max-width: 1024px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 
+      "header"
+      "content"
+      "footer";
+    grid-template-rows: auto 1fr auto;
+}
+.wrapper > * {padding: 10px;}
