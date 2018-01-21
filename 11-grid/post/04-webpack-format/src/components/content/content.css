@@ -1,0 +1,24 @@
+@import '../variables.css';
+
+main {
+    padding: 1rem;
+    h1 {
+        font-size: 2rem;
+        color: $red;
+    }
+    h1, p, figure {margin-bottom: 1rem;}
+    img {border: 1px solid $dark;}
+    figcaption {
+        text-align: center;
+        font-size: .8rem;
+        font-style: italic;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    figure {
+        width: 50%;
+        margin: 0 1rem 0 0;
+        float: left;
+    }
+}

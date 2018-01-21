@@ -1,7 +1,21 @@
-/* app.css */
-.main-head   {grid-area: header;  background: lightpink;}
-.content     {grid-area: content; background: lightblue;}
-.main-footer {grid-area: footer;  background: lightpink;}
+@import '../variables.css';
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* hide screen-reader only text. https://webaim.org/techniques/css/invisiblecontent/ */
+.clip {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.main-head   {grid-area: header; background: $dark; color: $light;}
+.content     {grid-area: content; background: $light; color: $dark;}
+.main-footer {grid-area: footer;  background: $dark; color: $light;}
 
 .wrapper {
     max-width: 1024px;
@@ -14,4 +28,9 @@
       "footer";
     grid-template-rows: auto 1fr auto;
 }
-.wrapper > * {padding: 10px;}
+
+footer {
+  text-align: center;
+  font-size: .8rem;
+  padding: .5rem 0;
+}
