@@ -1,4 +1,18 @@
+html {height: 100%;}
 body {
     font: 400 100%/1.4 Helvetica, Arial, sans-serif;
     color: #222;
+    min-height: 100%;
 }
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* hide screen-reader only text. https://webaim.org/techniques/css/invisiblecontent/ */
+  .clip {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+  }
