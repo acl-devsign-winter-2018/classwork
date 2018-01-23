@@ -1,1 +1,23 @@
-/* app.css */
+@import '../variables.css';
+
+.main-head {grid-area: header; background: $dark; color: $light;}
+.content   {grid-area: content; background: $light; color: $dark;}
+.main-footer {grid-area: footer; background: $dark; color: $light;}
+
+.wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas:
+    "header"
+    "content"
+    "footer";
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+footer {
+    text-align: center;
+    font-size: .8rem;
+    padding: .5rem 0;
+}

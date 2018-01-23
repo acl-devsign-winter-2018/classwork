@@ -2,3 +2,22 @@ body {
     font: 400 100%/1.4 Helvetica, Arial, sans-serif;
     color: #222;
 }
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    /* 10 cols, 100px wide */
+    grid-template-columns: repeat(10, 100px);
+    /* 10 cols, width based on avail space */
+    grid-template-columns: repeat(10, 1fr);
+    /* fit as many 100px boxes as the avail space allows */
+    grid-template-columns: repeat(auto-fill, 100px);
+    /* fit as many 100px boxes as the avail space
+    allows, THEN use 1fr unit to adjust */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.box {
+    padding: 10px;
+    background: #ccc;
+}

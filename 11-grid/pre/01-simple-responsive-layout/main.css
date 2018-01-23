@@ -2,3 +2,46 @@ body {
     font: 400 100%/1.4 Helvetica, Arial, sans-serif;
     color: #222;
 }
+.wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 
+    "header"
+    "nav"
+    "content"
+    "sidebar"
+    "ad"
+    "footer";
+}
+.main-head {grid-area: header;}
+.main-nav {grid-area: nav;}
+.content {grid-area: content;}
+.side {grid-area: sidebar;}
+.ad {grid-area: ad;}
+.main-footer {grid-area: footer;}
+
+.wrapper > * {
+    border: 2px solid #f80;
+    background-color: #fe9;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+nav ul {text-align: center;}
+
+@media screen and (min-width: 500px) {
+    .wrapper {
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas:
+        "header header"
+        "nav nav"
+        "sidebar content"
+        "ad footer"
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+    }
+}
