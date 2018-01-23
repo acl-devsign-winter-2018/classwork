@@ -1,0 +1,12 @@
+footer {
+    ul {
+        list-style: none;
+        li {
+            display: inline-block;
+            margin-right: .5rem;
+            &:last-child {
+                margin-right: none;
+            }
+        }
+    }
+}
