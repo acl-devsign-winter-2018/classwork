@@ -1,0 +1,37 @@
+@import '../variables.css';
+
+body {
+    font-size: $fluidFontSize;
+    padding: 1rem;
+}
+
+#main-head    {grid-area: header;}
+#main-content {grid-area: content;}
+#main-footer  {grid-area: footer;}
+
+.wrapper {
+    max-width: 1024px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 
+      "header"
+      "content"
+      "footer";
+    grid-template-rows: auto 1fr auto;
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 2rem 0 .5rem;
+}
+p, blockquote {
+    line-height: 1.4;
+    margin-bottom: 1.3rem;
+}
+
+footer {
+    text-align: center;
+    padding: .5rem 0;
+}
