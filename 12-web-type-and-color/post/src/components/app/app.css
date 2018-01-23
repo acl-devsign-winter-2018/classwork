@@ -2,17 +2,16 @@
 
 body {
     font-size: $fluidFontSize;
-    padding: 1rem;
 }
 
-#main-head    {grid-area: header;}
-#main-content {grid-area: content;}
-#main-footer  {grid-area: footer;}
+a {color: $link; text-decoration: none;}
+
+#main-head    {grid-area: header; background: $dark;}
+#main-content {grid-area: content; background: $light;}
+#main-footer  {grid-area: footer; background: $dark;}
 
 .wrapper {
-    max-width: 1024px;
     min-height: 100vh;
-    margin: 0 auto;
     display: grid;
     grid-template-areas: 
       "header"
@@ -20,7 +19,13 @@ body {
       "footer";
     grid-template-rows: auto 1fr auto;
 }
-
+.grid-content {
+    width: 100%;
+    max-width: $maxViewportSize;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
 h1, h2, h3, h4 {
     line-height: 1.1;
     font-weight: 700;
@@ -31,7 +36,4 @@ p, blockquote {
     margin-bottom: 1.3rem;
 }
 
-footer {
-    text-align: center;
-    padding: .5rem 0;
-}
+footer {text-align: center;}

@@ -16,8 +16,8 @@ export default class App {
     
     this.typeScale = dom.getElementById('type-scale');
     
-    dom.getElementById('type-scale-select').onchange = () => {
-      const elem = window.event.srcElement;
+    dom.getElementById('type-scale-select').onchange = event => {
+      const elem = event.target;
       const elemValue = elem.options[elem.selectedIndex].value;
       
       this.typeScale.className = elemValue;

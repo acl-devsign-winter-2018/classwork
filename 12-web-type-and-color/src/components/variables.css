@@ -1,7 +1,0 @@
-/* RESPONSIVE TYPOGRAPHY VALUES, SPECIFY WITHOUT PX */
-$minFontVal: 16;
-$maxFontVal: 24;
-$minViewportVal: 400;
-$maxViewportVal: 1024;
-
-$fluidFontSize: calc($(minFontVal)px + ($maxFontVal - $minFontVal) * (100vw - $(minViewportVal)px) / ($maxViewportVal - $minViewportVal));

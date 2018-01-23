@@ -1,0 +1,15 @@
+html {height: 100%;}
+
+body {min-height: 100%;}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.clip {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
