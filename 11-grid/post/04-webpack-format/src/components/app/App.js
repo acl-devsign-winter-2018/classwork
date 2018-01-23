@@ -26,7 +26,7 @@ export default class App {
   setPage() {
     const Component = map.get(window.location.hash) || One;
     const component = new Component();
-    removeChildren(this.main);
+    removeChildren(this.main);``
     this.main.appendChild(component.render());
   }
 
