@@ -1,0 +1,14 @@
+@import '../variables.css';
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    label, select {margin: 5px 0;}
+    select {
+        background: $light;
+        font-size: 1rem;
+    }
+}

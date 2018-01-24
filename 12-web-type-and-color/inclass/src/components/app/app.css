@@ -1,0 +1,38 @@
+@import '../variables.css';
+
+body {
+    font-size: $fluidFontSize;
+    hyphens: auto;
+}
+
+a {color: $link; text-decoration: none;}
+
+#main-head    {grid-area: header; background: $dark;}
+#main-content {grid-area: content; background: $light;}
+#main-footer  {grid-area: footer; background: $dark;}
+
+.wrapper {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+      "header"
+      "content"
+      "footer";
+    grid-template-rows: auto 1fr auto;
+}
+.grid-content {
+    width: 100%;
+    max-width: $maxViewportSize;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+h1, h2, h3, h4 {
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 2rem 0 .5rem;
+}
+p, blockquote {
+    line-height: 1.4;
+    margin-bottom: 1.3rem;
+}
