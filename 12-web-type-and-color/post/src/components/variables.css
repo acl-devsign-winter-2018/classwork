@@ -7,7 +7,7 @@ $link: #9b1d20;
    https://www.smashingmagazine.com/2016/05/fluid-typography/ */
 $minFontVal: 16;
 $maxFontVal: 24;
-$minViewportVal: 400;
+$minViewportVal: 480;
 $maxViewportVal: 1024;
 
 $minFontSize: $(minFontVal)px;

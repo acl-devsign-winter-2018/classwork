@@ -2,6 +2,7 @@
 
 body {
     font-size: $fluidFontSize;
+    hyphens: auto;
 }
 
 a {color: $link; text-decoration: none;}
@@ -31,7 +32,11 @@ h1, h2, h3, h4 {
     font-weight: 700;
     margin: 2rem 0 .5rem;
 }
-p, blockquote {
+p {
     line-height: 1.4;
     margin-bottom: 1.3rem;
+}
+
+@media screen and (max-width: $minViewportSize) {
+    body {font-size: $minFontSize;}
 }
