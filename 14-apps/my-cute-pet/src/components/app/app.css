@@ -1,48 +1,34 @@
-main {
-  position: relative;
+@import '../variables.css';
+
+.hidden {display: none;}
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+  "header"
+  "content"
+  "footer";
+  grid-template-rows: auto 1fr auto;
+}
+#main-head    {grid-area: header;}
+#main-content {grid-area: content;}
+#main-footer  {grid-area: footer;}
+
+.maxwidth-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.hidden {
-  display: none;
-}
-
-header {
-
-  background: rgba(0, 0, 0, 0.1);
-  margin-bottom: 25px;
-
-  h1 {
-    display: flex;
-    align-items: center;
-
-    img {
-      width: 50px;
-      padding-right: 10px;
-    }
-  }
-
-  nav {
-    ul {
-      margin: 0;
-      padding: 0;
-
-      li {
-        display: inline-block;
-        list-style: none;
-        padding: 20px;
-        padding-left: 0;
-      }
-    }
-  }
-
-}
+h1 {font-size: 2.5em;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.25em;}
+small {font-size: .75em;}
 
 footer {
-  position: fixed;
-  z-index: 100;
-  background: white;
-  bottom: 0;
-  width: 100%;
   text-align: center;
-  padding: 10px 0;
+  background: $faintPink;
+  padding: $contentPadding;
 }
