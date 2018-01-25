@@ -4,9 +4,21 @@
   height: 350px;
   border: 1px solid #aaa;
 
+  &:hover button {
+    visibility: visible;  
+  }
+
   button {
+    visibility: hidden;
     position: absolute;
-    top: 5px;
     right: 5px;
+
+    &.remove {
+      top: 5px;
+    }
+
+    &.poster {
+      bottom: 5px;
+    }
   }
 }

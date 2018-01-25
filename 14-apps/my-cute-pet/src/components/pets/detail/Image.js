@@ -6,7 +6,7 @@ import { getUrl } from '../../../services/cloudinary';
 const template = new Template(html);
 
 export default class Image {
-  constructor(src, onRemove) {
+  constructor(src, onRemove, onPoster) {
     this.src = src;
     this.onRemove = onRemove;
   }
