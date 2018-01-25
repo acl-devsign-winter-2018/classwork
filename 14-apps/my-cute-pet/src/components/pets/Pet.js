@@ -5,17 +5,20 @@ import Template from '../Template';
 const template = new Template(html);
 
 export default class Pet {
-  constructor(pet) {
+  constructor(key, pet) {
+    this.key = key;
     this.pet = pet;
+  }
+
+  update(pet) {
+    this.header.textContent = `${pet.name} the ${pet.type}`;
   }
 
   render() {
     const dom = template.clone();
-    const { pet } = this;
-
-    this.li = 
-    dom.querySelector('p').textContent = `${pet.name} the ${pet.type}`;
-
+    this.header = dom.querySelector('article');
+    dom.querySelector('a').href = `#pets/${this.key}`;
+    this.update(this.pet);
     return dom;
   }
 }

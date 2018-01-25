@@ -25,7 +25,6 @@
           "after": true,
           "overrides": {
             "if": { "after": false },
-            "else": { "after": false },
             "for": { "after": false },
             "while": { "after": false },
             "do": { "after": false }

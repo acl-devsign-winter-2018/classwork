@@ -4,37 +4,42 @@ import './app.css';
 import Header from './Header';
 import Pets from '../pets/Pets.js';
 // import Home from '../home/Home.js';
-import { removeChildren } from '../dom';
 
 const template = new Template(html);
 
 const map = new Map();
-map.set('#books', Pets);
+map.set('#pets', Pets);
 
 export default class App {
 
   constructor() {
-    window.onhashchange = () => {
-      this.setPage();
-    };
+    this.hashChange = () => this.setPage();
+    window.addEventListener('hashchange', this.hashChange);
   }
 
   setPage() {
-    // Way to access value by key with an object
-    // const Component = map[window.location.hash] || Home;
-    const Component = map.get(window.location.hash) || Pets;
-    const component = new Component();
-    removeChildren(this.main);
-    this.main.appendChild(component.render());
+    const routes = window.location.hash.split('/');
+    const page = routes[0];
+    if(page === this.page) return;
+
+    if(this.pageComponent) this.pageComponent.unrender();
+    this.page = page;
+    const Component = map.get(this.page) || Pets;
+    this.pageComponent = new Component();
+    this.main.appendChild(this.pageComponent.render());
   }
 
   render() {
     const dom = template.clone();
-    
+
     dom.querySelector('header').appendChild(new Header().render());
     this.main = dom.querySelector('main');
     this.setPage();
-    
+
     return dom;
+  }
+
+  unrender() {
+    window.removeEventListener('hashchange', this.hashChange);
   }
 }

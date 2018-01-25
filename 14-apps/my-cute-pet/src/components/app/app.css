@@ -8,6 +8,7 @@ main {
 
 header {
 
+  background: rgba(0, 0, 0, 0.1);
   margin-bottom: 25px;
 
   h1 {

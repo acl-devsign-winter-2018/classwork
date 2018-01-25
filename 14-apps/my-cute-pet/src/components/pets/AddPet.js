@@ -1,10 +1,12 @@
 import html from './add-pet.html';
 import './add-pet.css';
 import Template from '../Template';
+import { db } from '../../services/firebase';
 
 const template = new Template(html);
+const pets = db.ref('pets');
 
-export default class Pet {
+export default class AddPet {
   constructor(onAdd) {
     this.onAdd = onAdd;
   }
@@ -15,8 +17,10 @@ export default class Pet {
     const data = new FormData(form);
     const obj = {};
     data.forEach((value, key) => obj[key] = value);    
-    this.onAdd(obj)
-      .then(() => this.form.reset())
+    
+    const ref = pets.push();
+    ref.set(obj)
+      .then(() => window.location.hash = `#pets/${ref.key}`)
       .catch(err => this.error.textContent = err);
   }
 
@@ -30,6 +34,15 @@ export default class Pet {
       this.handleSubmit(event.target);
     });
 
+    dom.querySelector('button[type=button]').addEventListener('click', event => {
+      event.preventDefault();
+      window.location.hash = '#pets';
+    });
+
     return dom;
+  }
+
+  unrender() {
+    // no-op
   }
 }
