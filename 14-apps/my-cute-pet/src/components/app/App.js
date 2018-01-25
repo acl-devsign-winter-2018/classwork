@@ -3,6 +3,7 @@ import html from './app.html';
 import './app.css';
 import Header from './header/Header';
 import './header/header.css';
+import Home from '../home/Home.js';
 import Pets from '../pets/Pets.js';
 import { removeChildren } from '../dom';
 // import Home from '../home/Home.js';
@@ -26,7 +27,7 @@ export default class App {
 
     if(this.pageComponent) this.pageComponent.unrender();
     this.page = page;
-    const Component = map.get(this.page) || Pets;
+    const Component = map.get(this.page) || Home;
     this.pageComponent = new Component();
     removeChildren(this.main);
     this.main.appendChild(this.pageComponent.render());

@@ -1,5 +1,8 @@
 .pet {
   list-style: none;
+  display: inline-block;
+  width: 150px;
+  height: 250px;
   padding: 10px 0;
   margin: 3px 0;
   border: 1px solid #aaa;
