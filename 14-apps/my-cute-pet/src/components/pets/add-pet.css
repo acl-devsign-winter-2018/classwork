@@ -1,0 +1,19 @@
+
+form {
+  background: lightgreen;
+  padding: 10px;
+
+  label {
+    display: block;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+
+  p {
+    margin-top: 10px;
+    height: 30px;
+    color: red;
+  }
+}
