@@ -1,5 +1,5 @@
 import html from './header.html';
-import Template from '../Template';
+import Template from '../../Template';
 
 const template = new Template(html);
 

@@ -1,8 +1,8 @@
 import html from './pet-list.html';
 import './pet-list.css';
-import Template from '../Template';
+import Template from '../../Template';
 import Pet from './Pet';
-import { db } from '../../services/firebase';
+import { db } from '../../../services/firebase';
 
 const template = new Template(html);
 const pets = db.ref('pets');

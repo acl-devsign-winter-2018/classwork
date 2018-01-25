@@ -1,9 +1,9 @@
 import Template from '../Template';
 import html from './pets.html';
 import './pets.css';
-import AddPet from './AddPet';
-import PetDetail from './PetDetail.js';
-import PetList from './PetList';
+import AddPet from './add/AddPet';
+import PetDetail from './detail/PetDetail.js';
+import PetList from './list/PetList';
 import { removeChildren } from '../dom';
 
 const template = new Template(html);

@@ -1,8 +1,9 @@
 import Template from '../Template';
 import html from './app.html';
 import './app.css';
-import Header from './Header';
+import Header from './header/Header';
 import Pets from '../pets/Pets.js';
+import { removeChildren } from '../dom';
 // import Home from '../home/Home.js';
 
 const template = new Template(html);
@@ -26,6 +27,7 @@ export default class App {
     this.page = page;
     const Component = map.get(this.page) || Pets;
     this.pageComponent = new Component();
+    removeChildren(this.main);
     this.main.appendChild(this.pageComponent.render());
   }
 

@@ -1,7 +1,7 @@
 import html from './pet-detail.html';
 import './pet-detail.css';
-import Template from '../Template';
-import { db } from '../../services/firebase';
+import Template from '../../Template';
+import { db } from '../../../services/firebase';
 
 const template = new Template(html);
 const pets = db.ref('pets');
