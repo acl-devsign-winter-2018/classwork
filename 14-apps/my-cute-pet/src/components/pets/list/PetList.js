@@ -21,7 +21,7 @@ export default class PetList {
     this.childAdded = pets.on('child_added', data => {
       const pet = new Pet(data.key, data.val());
       const petDom = pet.render();
-      this.map.set(data.key, petDom.childNodes);
+      this.map.set(data.key, [...petDom.childNodes]);
       ul.appendChild(petDom);
     });
 

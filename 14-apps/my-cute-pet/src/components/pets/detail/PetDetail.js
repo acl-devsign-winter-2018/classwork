@@ -18,7 +18,8 @@ export default class PetDetail {
   }
 
   handleUpload(file) {
-    const uploadTask = this.imageStorage.child(file.name).put(file);
+    const petImage = this.petImages.push();
+    const uploadTask = this.imageStorage.child(petImage.key).put(file);
     
     uploadTask.on('state_changed', (/*snapshot*/) => {
       // progress, pause and cancel events
@@ -29,7 +30,7 @@ export default class PetDetail {
       // success! now let's get the download url...
       const downloadUrl = uploadTask.snapshot.downloadURL;
       this.fileInput.value = null;
-      this.petImages.push().set(downloadUrl);
+      petImage.set(downloadUrl);
     });
   }
 
