@@ -1,1 +1,51 @@
-/* app.css */
+@import '../variables.css';
+
+body {
+    font-size: $fluidFontSize;
+    hyphens: auto;
+}
+
+#root {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+    "header"
+    "content"
+    "footer";
+    grid-template-rows: auto 1fr auto;
+}
+
+.maxwidth-wrap {
+    width: 100%;
+    max-width: $maxViewportSize;
+    margin: 0 auto;
+}
+
+#main-head {grid-area: header; background: $deepKoamaru; color: $alabaster;}
+#main-content {grid-area: content; background: $alabaster;}
+#main-footer {grid-area: footer;}
+
+h1 {font-size: 2.5em;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.25em;}
+small {font-size: .75em;}
+
+h1, h2, h3, h4 {
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 2rem 0 .5rem;
+}
+p {
+    line-height: 1.4;
+    margin-bottom: 1.3rem;
+}
+
+footer {
+    text-align: center;
+    padding: $content-padding;  
+}
+
+@media screen and (max-width: $minViewportSize) {
+    body {font-size: $minFontSize;}
+}
