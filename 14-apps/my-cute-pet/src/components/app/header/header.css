@@ -1,7 +1,8 @@
 @import '../../variables.css';
 header {
     background: $lightPink;
-    border-bottom: 1px solid $darkRed;
+    border-bottom: 1px solid $darkPink;
+    padding: $contentPadding;
     .header-flex {
         display: flex;
         justify-content: space-between;
@@ -10,10 +11,12 @@ header {
     h1 {
         display: flex;
         align-items: center;
+        font-size: 2rem;
+        margin-bottom: 0;
     }
     img {
-        width: 64px; 
-        height: 64px;
+        width: 40px; 
+        height: 40px;
         margin-right: 10px;
     }
     nav {
@@ -23,9 +26,12 @@ header {
                 margin-left: 10px;
                 a {
                     text-decoration: none;
-                    color: $darkRed;
+                    background: $darkPink;
+                    color: #fff;
+                    padding: 10px;
                     text-transform: uppercase;
                     font-size: 1.2rem;
+                    border-radius: 10px;
                 }
             }
         }
