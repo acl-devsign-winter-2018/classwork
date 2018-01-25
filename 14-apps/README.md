@@ -46,3 +46,5 @@ config object and paste to `firebase.js`
 1. Configure client-side (app) service for accessing firebase
   1. Install firebase SDK: `npm i firebase`
   1. See `src/services/firebase.js` for setup
+1. Choose `Storage` from the right menu, then choose add.
+1. In `Rules` tab for `Storage`,  set `read` and `write` access to true in fb console (for now! we will cover auth next week!)
