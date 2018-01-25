@@ -1,0 +1,21 @@
+@import '../variables.css';
+
+header {
+    .header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $content-padding;
+        box-sizing: border-box;
+    }
+    #logo {font-size: 1.25em;}
+    ul {
+        list-style: none;
+        li {
+            display: inline-block;
+            margin-left: .25rem;
+            font-size: .9em;
+            a {color: $alabaster;}
+        }
+    }
+}
