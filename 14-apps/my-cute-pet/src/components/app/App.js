@@ -2,6 +2,7 @@ import Template from '../Template';
 import html from './app.html';
 import './app.css';
 import Header from './header/Header';
+import './header/header.css';
 import Home from '../home/Home.js';
 import Pets from '../pets/Pets.js';
 import { removeChildren } from '../dom';
