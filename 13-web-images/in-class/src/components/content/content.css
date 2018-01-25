@@ -1,0 +1,28 @@
+@import '../variables.css';
+
+main {
+    padding-bottom: 5rem;
+    .content-grid > * {padding: $content-padding;}
+}
+
+@media (min-width: 640px) {
+    .content-grid > div:nth-child(1) {grid-area: A;}
+    .content-grid > div:nth-child(2) {grid-area: B;}
+    .content-grid > div:nth-child(3) {grid-area: C;}
+    .content-grid > div:nth-child(4) {grid-area: D;}
+    .content-grid > div:nth-child(5) {grid-area: E;}
+    .content-grid > div:nth-child(6) {grid-area: F;}
+    .content-grid > div:nth-child(7) {grid-area: G;}
+    .content-grid > div:nth-child(8) {grid-area: H;}
+
+    .content-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        "B A A"
+        "C C D"
+        "F E E"
+        "G G H";
+        align-items: center;
+    }
+}
