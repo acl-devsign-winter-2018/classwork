@@ -1,6 +1,5 @@
 import Template from '../../Template';
 import html from './images.html';
-import './images.css';
 import Image from './Image';
 import { db, storage } from '../../../services/firebase';
 

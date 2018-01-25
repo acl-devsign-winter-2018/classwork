@@ -1,0 +1,12 @@
+.pet-image {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  border: 1px solid #aaa;
+
+  button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}

@@ -1,5 +1,6 @@
 import html from './image.html';
 import Template from '../../Template';
+import './image.css';
 import { getUrl } from '../../../services/cloudinary';
 
 const template = new Template(html);
@@ -16,7 +17,7 @@ export default class Image {
     dom.querySelector('button').addEventListener('click', () => {
       this.onRemove();
     });
-    
+
     return dom;
   }
 }
