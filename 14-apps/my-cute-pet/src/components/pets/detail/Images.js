@@ -13,6 +13,23 @@ export default class Images {
     this.imageStorage = petImageStorage.child(key);
   }
 
+  handleUpload(file) {
+    const petImage = this.petImages.push();
+    const uploadTask = this.imageStorage.child(petImage.key).put(file);
+    
+    uploadTask.on('state_changed', (/*snapshot*/) => {
+      // progress, pause and cancel events
+    }, err => {
+      // something went wrong :(
+      console.error(err);
+    }, () => {
+      // success! now let's get the download url...
+      const downloadUrl = uploadTask.snapshot.downloadURL;
+      this.fileInput.value = null;
+      petImage.set(downloadUrl);
+    });
+  }
+
   handleRemove(imageKey) {
     this.petImages.child(imageKey).remove();
     this.imageStorage.child(imageKey).delete();
@@ -21,8 +38,14 @@ export default class Images {
   render() {
     const dom = template.clone();
     
-    const ul = dom.querySelector('ul');
+    this.fileInput = dom.querySelector('input[type=file]');
+    this.fileInput.addEventListener('change', event => {
+      const { files } = event.target;
+      if(!files || !files.length) return;
+      this.handleUpload(files[0]);
+    });
 
+    const ul = dom.querySelector('ul');
     const map = new Map();
 
     this.childAdded = this.petImages.on('child_added', data => {
