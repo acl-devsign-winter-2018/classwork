@@ -6,7 +6,6 @@ import './header/header.css';
 import Home from '../home/Home.js';
 import Pets from '../pets/Pets.js';
 import { removeChildren } from '../dom';
-// import Home from '../home/Home.js';
 
 const template = new Template(html);
 

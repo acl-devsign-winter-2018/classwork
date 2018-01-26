@@ -15,11 +15,11 @@ export default class AddPet {
     this.error.textContent = '';
 
     const data = new FormData(form);
-    const obj = {};
-    data.forEach((value, key) => obj[key] = value);    
+    const pet = {};
+    data.forEach((value, key) => pet[key] = value);    
     
     const ref = pets.push();
-    ref.set(obj)
+    ref.set(pet)
       .then(() => window.location.hash = `#pets/${ref.key}`)
       .catch(err => this.error.textContent = err);
   }

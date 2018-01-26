@@ -17,10 +17,12 @@ export default class PetDetail {
     const dom = template.clone();
 
     const header = dom.querySelector('h2');
+    const name = dom.querySelector('.name');
 
     this.onValue = this.pet.on('value', data => {
       const pet = data.val();
       header.textContent = `${pet.name} the ${pet.type}`;
+      name.textContent = pet.name;
     });
 
     this.images = new Images(this.key);

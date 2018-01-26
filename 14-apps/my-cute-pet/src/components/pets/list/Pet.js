@@ -4,7 +4,6 @@ import './pet.css';
 import { db } from '../../../services/firebase';
 import { getUrl } from '../../../services/cloudinary';
 
-
 const template = new Template(html);
 const petsImages = db.ref('pet-images');
 
@@ -17,17 +16,19 @@ export default class Pet {
 
   update(pet) {
     this.caption.textContent = `${pet.name} the ${pet.type}`;
+    this.image.alt = pet.name;
   }
 
   render() {
     const dom = template.clone();
     dom.querySelector('a').href = `#pets/${this.key}`;
     this.caption = dom.querySelector('h2');
-    this.update(this.pet);
+    this.image = dom.querySelector('img');
 
-    const image = dom.querySelector('img');
+    this.update(this.pet);
+    
     this.onValue = this.petImages.on('child_added', data => {
-      image.src = getUrl(data.val(), 'c_scale,w_75');
+      this.image.src = getUrl(data.val(), 'e_sepia:80,c_scale,w_75');
     });
 
     return dom;

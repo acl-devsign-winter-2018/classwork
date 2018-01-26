@@ -30,9 +30,19 @@ export default class Images {
     });
   }
 
+  handleEmbed(url) {
+    const petImage = this.petImages.push();
+    petImage.set(url);
+  }
+
   handleRemove(imageKey) {
     this.petImages.child(imageKey).remove();
-    this.imageStorage.child(imageKey).delete();
+    const storage = this.imageStorage.child(imageKey);
+    storage.delete()
+      .catch(err => {
+        if(err.code === 'storage/object-not-found') return;
+        console.error(err);
+      });
   }
 
   render() {
@@ -40,9 +50,15 @@ export default class Images {
     
     this.fileInput = dom.querySelector('input[type=file]');
     this.fileInput.addEventListener('change', event => {
-      const { files } = event.target;
+      const files = event.target.files;
       if(!files || !files.length) return;
       this.handleUpload(files[0]);
+    });
+
+    const embedForm = dom.querySelector('form');
+    embedForm.addEventListener('submit', event => {
+      event.preventDefault();
+      this.handleEmbed(event.target.elements.url.value);
     });
 
     const ul = dom.querySelector('ul');
@@ -51,12 +67,17 @@ export default class Images {
     this.childAdded = this.petImages.on('child_added', data => {
       const image = new Image(data.val(), () => this.handleRemove(data.key));
       const imageDom = image.render();
-      map.set(data.key, [...imageDom.childNodes]);
+      map.set(data.key, {
+        nodes: [...imageDom.childNodes],
+        component: image
+      });
       ul.appendChild(imageDom);
     });
 
     this.childRemoved = this.petImages.on('child_removed', data => {
-      map.get(data.key).forEach(node => node.remove());
+      const toRemove = map.get(data.key);
+      toRemove.nodes.forEach(node => node.remove());
+      // toRemove.component.unrender();
     });
 
     return dom;

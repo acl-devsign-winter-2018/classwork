@@ -3,6 +3,8 @@
   width: 250px;
   height: 350px;
   border: 1px solid #aaa;
+  display: inline-block;
+  margin: 10px;
 
   &:hover button {
     visibility: visible;  
