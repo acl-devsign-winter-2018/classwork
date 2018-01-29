@@ -2,3 +2,36 @@
 
 /* inspired by https://codepen.io/erikterwan/pen/EVzeRP */
 
+header {
+    background: $darkDarkGrey;
+    padding: $contentPadding;
+    border-bottom: 1px solid $mediumGrey;
+    position: relative;
+    #logo {width: 48px;}
+    #navBtn span {
+        position: absolute;
+        right: 1rem;
+        top: 0;
+        display: block;
+        background: $lightGrey;
+        width: 36px;
+        height: 4px;
+        &:nth-child(1) {transform: translate(0, 20px);}
+        &:nth-child(2) {transform: translate(0, 30px);}
+        &:nth-child(3) {transform: translate(0, 40px);}
+    }
+    input {
+        display: block;
+        z-index: 2;
+        position: absolute;
+        transform: scale(4, 3);
+        top: 24px;
+        right: 24px;
+        opacity: 0;
+    }
+    input:checked ~ #navBtn span {
+        &:nth-child(1) {transform: rotate(45deg) translate(20px, 20px);}
+        &:nth-child(2) {opacity: 0;}
+        &:nth-child(3) {transform: rotate(-45deg) translate(-20px, 20px);}
+    }
+}
