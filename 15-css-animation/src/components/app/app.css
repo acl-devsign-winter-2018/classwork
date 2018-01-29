@@ -1,0 +1,36 @@
+@import '../variables.css';
+
+#root {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+    "header"
+    "content"
+    "footer";
+    grid-template-rows: auto 1fr auto;
+}
+
+#main-head    {grid-area: header;}
+#main-content {grid-area: content;}
+#main-footer  {grid-area: footer;}
+
+h1 {font-size: 2.5em;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.25em;}
+small {font-size: .75em;}
+
+h1, h2, h3, h4 {
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+}
+p {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: $contentPadding;  
+}
