@@ -16,6 +16,7 @@ header {
         background: $lightGrey;
         width: 36px;
         height: 4px;
+        transition: all .25s ease-in;
         &:nth-child(1) {transform: translate(0, 20px);}
         &:nth-child(2) {transform: translate(0, 30px);}
         &:nth-child(3) {transform: translate(0, 40px);}
@@ -30,8 +31,57 @@ header {
         opacity: 0;
     }
     input:checked ~ #navBtn span {
+        transition: all .25s ease-out;
         &:nth-child(1) {transform: rotate(45deg) translate(20px, 20px);}
         &:nth-child(2) {opacity: 0;}
         &:nth-child(3) {transform: rotate(-45deg) translate(-20px, 20px);}
+    }
+    nav {
+        background: $darkGrey;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 65px;
+        transform: translate(-100%, 0);
+        transform-origin: 0 0;
+        opacity: 0;
+        ul {
+            li {
+                a {
+                    color: $lightGrey;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    display: block;
+                    text-align: center;
+                    padding: 1rem 0;
+                    border-bottom: 1px solid $mediumGrey;
+                }
+                &:hover {background: $buttonHover;}
+            }
+        }
+    }
+    input:checked ~ nav {
+        opacity: 1;
+        transform: none;
+        transition: all .2s ease-out;
+    }
+}
+
+@media (min-width: 720px) {
+    header {
+        #logo {margin: 0 auto;}
+        #navBtn, input {display: none;}
+        nav {
+            opacity: 1;
+            transform: none;
+        }
+        ul {
+            display: flex;
+            li {
+                flex-grow: 1;
+                a {border-right: 1px solid $mediumGrey;}
+                &:last-child a {border-right: none;}
+            }
+        }
     }
 }

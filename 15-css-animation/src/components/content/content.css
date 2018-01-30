@@ -1,2 +1,47 @@
 @import '../variables.css';
 
+@keyframes dropMain {
+    0% {
+        opacity: .6;
+        transform: translate(-100%, 0);
+    }
+    70% {
+        opacity: .6;
+        transform: translate(5%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+main {
+    margin-bottom: 5rem;
+    padding: $contentPadding;
+    article {
+        animation: dropMain .5s ease-out;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 720px) {
+    main {
+        margin-top: 3rem;
+        article {animation: dropMain .35s ease-out;}
+    }
+    @keyframes dropMain {
+        0% {
+            opacity: 0;
+            transform: translate(-20%, 0);
+        }
+        30% {
+            opacity: .6;
+            transform: translate(2%, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+    }
+}
