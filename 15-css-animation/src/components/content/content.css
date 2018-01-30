@@ -16,7 +16,7 @@
 }
 
 main {
-    margin-bottom: 5rem;
+    margin: 3rem 0 5rem;
     padding: $contentPadding;
     article {
         animation: dropMain .5s ease-out;
@@ -27,7 +27,7 @@ main {
 
 @media (min-width: 720px) {
     main {
-        margin-top: 3rem;
+        margin: 6rem 0 3rem;
         article {animation: dropMain .35s ease-out;}
     }
     @keyframes dropMain {
