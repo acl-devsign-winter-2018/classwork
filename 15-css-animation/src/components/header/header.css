@@ -3,13 +3,19 @@
 /* inspired by https://codepen.io/erikterwan/pen/EVzeRP */
 
 header {
-    background: $darkDarkGrey;
-    padding: $contentPadding;
-    border-bottom: 1px solid $mediumGrey;
     position: relative;
-    #logo {width: 48px;}
+    #logo {
+        background: $darkDarkGrey;
+        border-bottom: 1px solid $mediumGrey;
+        padding: $contentPadding;
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+        img {width: 48px;}
+    }
     #navBtn span {
         position: absolute;
+        z-index: 3;
         right: 1rem;
         top: 0;
         display: block;
@@ -23,7 +29,7 @@ header {
     }
     input {
         display: block;
-        z-index: 2;
+        z-index: 4;
         position: absolute;
         transform: scale(4, 3);
         top: 24px;
@@ -39,10 +45,11 @@ header {
     nav {
         background: $darkGrey;
         position: absolute;
+        z-index: 1;
         width: 100%;
         left: 0;
         top: 65px;
-        transform: translate(-100%, 0);
+        transform: translate(0, -100%);
         transform-origin: 0 0;
         opacity: 0;
         ul {
@@ -69,7 +76,7 @@ header {
 
 @media (min-width: 720px) {
     header {
-        #logo {margin: 0 auto;}
+        #logo img {margin: 0 auto;}
         #navBtn, input {display: none;}
         nav {
             opacity: 1;
