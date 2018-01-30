@@ -1,5 +1,6 @@
 import Template from '../Template';
 import html from './home.html';
+import './home.css';
 
 import { getURL } from '../../services/cloudinary';
 
@@ -11,11 +12,11 @@ export default class Home {
     this.aspectRatios = ['3:1', '5:2', '2:1', '3:2', '1:1'];
     this.breakpoints = [2000, 1500, 1200, 900, 600];
     this.fileName = 'wheatfield-with-crows-vincent-van-gogh-1890_nb7qd7.jpg';
-    this.alt = 'Vincent Van Gogh, Wheafield With Crows, 1890';
+    this.alt = 'Vincent Van Gogh, Wheatfield With Crows, 1890';
   }
 
   createSplash(aspectRatios, breakpoints, fileName, alt) {
-    let pictureTxt = '<picture>';
+    let pictureTxt = '';
     for(let i = 0; i < aspectRatios.length; i++) {
       const imgOptions = `c_fill,g_auto,q_auto,ar_${aspectRatios[i]},w_${breakpoints[i]}`;
       const imgURL = getURL(fileName, imgOptions);
@@ -29,14 +30,16 @@ export default class Home {
         pictureTxt += `<img srcset="${imgURL}, ${retinaURL} 2x" alt="${alt}">`;
       }
     }
-    pictureTxt += '</picture>';
-    console.log(pictureTxt);
     return pictureTxt;
   }
 
   render() {
     const dom = template.clone();
-    dom.querySelector('#splash').innerHTML = this.createSplash(this.aspectRatios, this.breakpoints, this.fileName, this.alt);
+    dom.querySelector('picture').innerHTML = this.createSplash(this.aspectRatios, this.breakpoints, this.fileName, this.alt);
     return dom;
+  }
+
+  unrender() {
+    // no-op
   }
 }
