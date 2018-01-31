@@ -37,47 +37,8 @@ p {
     line-height: 1.5;
 }
 
-
-article {
-    padding: $contentPadding;
-    box-sizing: border-box;
-    margin: 1rem auto 5rem;
-    max-width: 1160px;
-    width: 100%;
-    figure {margin-bottom: 1rem;}
-    figcaption {margin-top: .5rem;}
-}
-section::after { 
-    content: "";
-    display: block; 
-    clear: both;
-}
-figcaption {
-    text-align: center;
-    font-size: .75em;
-}
-
 footer {
     text-align: center;
     padding: $contentPadding;
     border: 1px solid #aaa;
-}
-
-@media (min-width: 640px) {
-    .bioLeft {
-        width: 40%;
-        float: left;
-        margin: 10px 1rem 0 0;
-    }
-    .bioRight {
-        width: 40%;
-        float: right;
-        margin: 10px 0 0 1rem;
-    }
-}
-@media (min-width: 1200px) {
-    article {
-        border-left: 1px dotted #aaa;
-        border-right: 1px dotted #aaa;
-    }
 }
