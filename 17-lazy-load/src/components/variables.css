@@ -12,7 +12,7 @@ $darkText: #182534;
    $minFontVal: 20;
    $maxFontVal: 24;
    $minViewportVal: 480;
-   $maxViewportVal: 1024;
+   $maxViewportVal: 1200;
    
    $minFontSize: $(minFontVal)px;
    $maxFontSize: $(maxFontVal)px;
