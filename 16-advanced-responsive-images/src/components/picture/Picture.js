@@ -27,7 +27,6 @@ export default class Picture {
         pictureHTML += `<img srcset="${imgURL}, ${retinaURL} 2x" alt="${cloudinaryObj.alt}">`;
       }
     }
-    console.log('pictureHTML', pictureHTML);
     return pictureHTML;
   }
 
