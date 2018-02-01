@@ -1,13 +1,33 @@
-.lazy {position: relative;}
-.loRes {
+@import '../variables.css';
+
+.lazy {
     position: relative;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    .loRes {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    .hiRes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+    .hiRes img {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out;
+        animation-fill-mode: forwards;
+        border: 1px solid $darkText;
+    }
 }
-.hiRes {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
+figcaption {
+    font-size: .75em;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }
