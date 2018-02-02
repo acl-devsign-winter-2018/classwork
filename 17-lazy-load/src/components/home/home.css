@@ -26,11 +26,42 @@ article {
     padding: $contentPadding;
     box-sizing: border-box;
     margin: 2.5rem auto 5rem;
+    blockquote {
+        font-weight: 700;
+        font-size: 1.25em;
+        cite {
+            font-weight: 400;
+            display: block;
+            text-align: right;
+            font-size: .875em;
+        }
+    }
+    section figure {margin-bottom: 2rem;}
 }
 
 @media (min-width: $maxViewportSize) {
     article {
         border-left: 1px dotted $darkText;
         border-right: 1px dotted $darkText;
+    }
+}
+
+@media (min-width: 720px) {
+    article {
+        section::after { 
+            content: "";
+            display: block; 
+            clear: both;
+        }
+        section:nth-child(odd) figure {
+            float: right;
+            margin: .5rem 0 1rem 1.5rem;
+            width: 40%;
+        }
+        section:nth-child(even) figure {
+            float: left;
+            margin: .5rem 1.5rem 1rem 0;
+            width: 40%;
+        }
     }
 }
