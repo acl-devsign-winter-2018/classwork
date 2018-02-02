@@ -1,6 +1,8 @@
 Auth and Deploy
 ===
 
+Today's repo: https://github.com/acl-devsign-winter-2018/my-cute-pet
+
 ## Auth and User Management
 
 Goals: 
@@ -42,6 +44,7 @@ Goal: Optimize for production build vs development process
 * Separate Webpack config
     * dev
     * production
+* Add `--config webpack.prod.js` to `package.json` `build` script
 * New Plugins:
     * `> npm i -D extract-text-webpack-plugin`
     * `> npm i -D uglifyjs-webpack-plugin`
@@ -58,12 +61,14 @@ Goal: Have environments be easily configurable
 * ~~Defined in webpack config file~~
 * Defined in `.env` file
 
-# Deploy
+## Deploy
 
 Goal: Deploy built code to firebase, github, or other source
 
 * Github
     * Set url in firebase console
+        * Copy ID and SECRET to Firebase from Github Oauth App page
+        * Copy callback url from Firebase Github setup to Github Oauth App page
     * Turn on docs folder
     * `> git push origin master` 
 * Firebase
