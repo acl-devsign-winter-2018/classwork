@@ -1,9 +1,10 @@
 /* eslint no-console: off */
-import faker from 'faker';
-import cowsay from 'cowsay-browser';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+import './styles/main.css';
 
-const words = number => faker.random.words(number);
+ReactDOM.render(<App/>, document.getElementById('root'));
 
-let cowSaid = cowsay.say({ text: words(4), f: 'cow' });
 
-console.log(cowSaid);
+
