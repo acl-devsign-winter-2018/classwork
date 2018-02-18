@@ -56,7 +56,7 @@ export default class App extends Component {
           <h1 className="App-title">Generate Cowsay Lorem</h1>
         </header>
 
-        <p className="intro">
+        <p>
 
           <select onChange={this.setCow}>
             <option>choose a cow</option>
