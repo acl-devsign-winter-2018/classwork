@@ -2,15 +2,17 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 
+const path = `${__dirname}/build`;
+
 module.exports = {
   entry: './src/index.js',
   output: {
+    path,
     filename: 'bundle.[hash].js',
-    path: `${__dirname}/build`,
   },
   devtool: 'inline-source-map',
   plugins: [
-    new CleanWebpackPlugin(`${__dirname}/build/bundle.*.js`), 
+    new CleanWebpackPlugin(`${path}/bundle.*.js`), 
     new HtmlPlugin({ template: './src/index.html' }),
   ],
   module: {
@@ -30,8 +32,8 @@ module.exports = {
           {
             loader: 'css-loader',
             options: { 
-              importLoaders: 1, 
-              sourceMap: true 
+              sourceMap: true,
+              importLoaders: 1 
             }
           },
           {
