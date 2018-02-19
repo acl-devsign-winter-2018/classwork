@@ -14,6 +14,10 @@ conjunction with loaders (`Extract Text`)
 
 ## Setup
 
+### `package.json`
+
+1. `npm init` to create `package.json`
+
 ### Basic Build Setup
 
 1. `npm i webpack -D`
@@ -32,6 +36,7 @@ conjunction with loaders (`Extract Text`)
 1. Add `contentBase` to `webpack.config.js`
 1. Run `npx webpack-dev-server`
 1. Success? Add to `package.json` as `start`
+1. Commit
 
 ### Add an `index.html`
 
@@ -39,15 +44,18 @@ conjunction with loaders (`Extract Text`)
 1. Add `HTMLPLugin` to `webpack.config.js`
 1. Restart via `npm start`
 1. Notice what happens when you change `add.js`
+1. Commit
 
 ### Add `babel` for ESNext
 
 1. `npm i babel-core babel-loader babel-preset-env -D`
-1. Add `.babelrc` with preset for last two browser versions
+1. Add `.babelrc` with preset for last two browser versions, or chrome 60, etc.
+1. (Optional for today: add additional object spread and class properties plugins)
 1. Add `rule` to `webpack.config.js` for loading `.js` with babel
 1. Try `npm start`
 1. Change files to use ES6 modules
 1. Restart and verify that it works!
+1. Commit
 
 ### Add React
 
@@ -57,6 +65,49 @@ conjunction with loaders (`Extract Text`)
 1. Change code to render some react jsx to `document.body`
 1. Restart and verify that it works!
 
+### Change `eslint` to better work with `react` and `babel`
+
+1. `npm i eslint-plugin-babel eslint-plugin-react -D`
+1. Refer to class example for setup of `.eslintrc`. Main changes:
+    1. Extend react plugin:
+
+        ```json
+        "extends": [
+            "eslint:recommended",
+            "plugin:react/recommended"
+        ]
+        ```
+    2. Use `babel` parser and plugin, change `parserOptions` and `env`:
+
+        ```json
+        "parser": "babel-eslint",
+        "parserOptions": {
+            "ecmaVersion": 8,
+            "sourceType": "module",
+            "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "module": true,
+            "jsx": true
+            }
+        },
+        "env": {
+            "es6": true,
+            "browser": true
+        },
+        "plugins": [
+            "babel"
+        ],
+        ```
+    3. Add babel-specific rules:
+        ```json
+         "rules": {
+            //...
+            "babel/object-curly-spacing": ["error", "always"],
+            "babel/no-invalid-this": 1,
+            "babel/semi": 1
+        }
+        ```
+
 ### Use a template for `index.html`
 
 1. Add `index.html` to `src` that has an `id="root"` target element
@@ -64,19 +115,19 @@ conjunction with loaders (`Extract Text`)
 1. Change `ReactDOM.render` to target the new element
 1. Restart and verify that it works!
 
-### Add a plugin
-
-A common plugin is `es-2015`, though it tends to be overly broad. In this case,
-we are adding what we need.
-
-1. Add a component with class properties
-1. `npm install babel-plugin-transform-class-properties -D`
-1. Add the plugin to your `.babelrc`
-1. Restart and verify it works!
-
 ### Add `css` with style loader
 
-1. `npm i css-loader style-loader -D`
+1. `npm i css-loader style-loader postcss-loader autoprefixer precss -D`
+1. Add `postcss.config.js` with autoprefixer and precess:
+    ```js
+    /* eslint-env node */
+    module.exports = {
+        plugins: [
+            require('precss'),
+            require('autoprefixer')
+        ]
+    };
+    ```
 1. Add a loader to rules
 1. Add a css file
 1. Restart and verify it works!
