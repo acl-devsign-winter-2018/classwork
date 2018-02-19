@@ -152,21 +152,3 @@ devtool: 'inline-source-map',
 1. Add a loader to rules
 1. Add a css file
 1. Restart and verify it works!
-
-### Extract css to own file
-
-1. `npm un style-loader -D`
-1. `npm i extract-text-webpack-plugin -D`
-1. Add Extract Text to `plugins` and change loader rule
-1. Restart and verify it works!
-
-### scss and local modules FTW!
-
-1. `npm i sass-loader node-sass -D`
-1. Change css loader rule
-1. Change `.css` file to `.scss`, add some nested css or variables
-1. Change import correct file extension
-1. Restart and verify it works!
-1. Try adding a `:local` and using the import in your component
-
-
