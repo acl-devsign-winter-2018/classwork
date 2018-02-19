@@ -16,7 +16,7 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`), 
-    new HtmlPlugin()
+    new HtmlPlugin({ template: './src/index.html' })
   ],
   module: {
     rules: [

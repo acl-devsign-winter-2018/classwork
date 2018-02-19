@@ -6,6 +6,7 @@
           "browsers": "Chrome 60"
         }
       }
-    ]
+    ],
+    "react"
   ]
 }

@@ -88,7 +88,7 @@ devtool: 'inline-source-map',
 
 ### Change `eslint` to better work with `react` and `babel`
 
-1. `npm i eslint-plugin-babel eslint-plugin-react -D`
+1. `npm i babel-eslint eslint-plugin-babel eslint-plugin-react -D`
 1. Refer to class example for setup of `.eslintrc`. Main changes:
     1. Extend react plugin:
 

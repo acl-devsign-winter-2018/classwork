@@ -1,3 +1,7 @@
-import add from './add';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log('hello world!', add(3, 11));
+ReactDOM.render(
+  <div>Hello World</div>,
+  document.getElementById('root')
+);
