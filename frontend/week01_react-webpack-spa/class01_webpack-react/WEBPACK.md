@@ -45,11 +45,11 @@ Remove old bundle files by cleaning them when build
 
 1. `npm i webpack-dev-server -D`
 1. Add "build" as `devServer/contentBase` to `webpack.config.js`:
-
     ```js
     devServer: {
         contentBase: './build',
     },
+    ```
 1. Run `npx webpack-dev-server`
 1. Success? Add to `package.json` as `start`
 1. Commit
@@ -75,7 +75,6 @@ devtool: 'inline-source-map',
 1. (Optional for today: add additional object spread and class properties plugins)
 1. Add `rule` to `webpack.config.js` for loading `.js` with babel
 1. Try `npm start`
-1. Change files to use ES6 modules
 1. Restart and verify that it works!
 1. Commit
 
