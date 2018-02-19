@@ -44,7 +44,12 @@ Remove old bundle files by cleaning them when build
 **NOTE: You will need to restart webpack _whenever_ config changes!!!**
 
 1. `npm i webpack-dev-server -D`
-1. Add `contentBase` to `webpack.config.js`
+1. Add "build" as `devServer/contentBase` to `webpack.config.js`:
+
+    ```js
+    devServer: {
+        contentBase: './build',
+    },
 1. Run `npx webpack-dev-server`
 1. Success? Add to `package.json` as `start`
 1. Commit

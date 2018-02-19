@@ -13,10 +13,14 @@
   "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "clean-webpack-plugin": "^0.1.18",
     "eslint": "^4.18.0",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-react": "^7.6.1",
+    "html-webpack-plugin": "^2.30.1",
     "webpack": "^3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "webpack-dev-server": "^2.11.1"
+  }
 }
