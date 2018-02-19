@@ -62,6 +62,12 @@ Remove old bundle files by cleaning them when build
 1. Notice what happens when you change `add.js`
 1. Commit
 
+### Add sourcemaps FTW!
+
+```js
+devtool: 'inline-source-map',
+```
+
 ### Add `babel` for ESNext
 
 1. `npm i babel-core babel-loader babel-preset-env -D`
