@@ -5,7 +5,7 @@ Frontend 01: Tooling (Webpack) and React
 * Students will be able to configure webpack to build a web application bundle
 * Students will be able to configure babel to transpile JSX and ES6 to ES5 JavaScript
 * Students will be able to create and render React components to the DOM
-* Students will be able to add event listeners to React components 
+* Students will be able to add event listeners to React elements 
 * Students will be able to update React component state
 
 ## Resources
@@ -65,15 +65,15 @@ Webpack is a module bundler for JS applications. It compiles modern JavaScript a
 
 ### Plugins 
 Plugins can be added to webpack to add extra functionality. Some examples include...  
- * Creating HTML files with dynamic script and link tags
- * Creating CSS files
- * Uglifying and minifying your code
- * Creating project global vars at compile time
+* Creating HTML files with dynamic script and link tags
+* Creating CSS files
+* Uglifying and minifying your code
+* Creating project global vars at compile time
 
 ### Loaders
 Loaders can be added to webpack to transform the data (code/json/images/etc.) imported into a project. Loaders are configured to only apply their transformations to files that match user defined regular expressions. Loaders can be chained together to transform data. Some examples include...
 * Transform ES6 files into ES5 files with Babel
-* Transform SASS files into CSS files
+* Transform SCSS files into CSS files
 * Transform images/fonts into base64 data embedded into your SASS/CSS
 
 ## React

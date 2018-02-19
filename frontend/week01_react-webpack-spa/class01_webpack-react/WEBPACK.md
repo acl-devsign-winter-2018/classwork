@@ -28,6 +28,17 @@ conjunction with loaders (`Extract Text`)
 1. Run `npx webpack` to create bundle.js
 1. Success? Add to `package.json` as `build`
 
+### Add Clean Webpack Plugin
+
+Remove old bundle files by cleaning them when build
+1. `npm i clean-webpack-plugin -D`
+1. Add to `plugins` section of `webpack.config.js`
+    ```js
+    plugins: [
+        new CleanWebpackPlugin(`${path}/bundle.*.js`), 
+    ],
+    ```
+
 ### Dev Server
 
 **NOTE: You will need to restart webpack _whenever_ config changes!!!**
