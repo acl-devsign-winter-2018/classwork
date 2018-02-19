@@ -74,7 +74,7 @@ export default class App extends Component {
           <input name="url" defaultValue={image} onChange={this.setImage}/>
         </p>
 
-        <section 
+        <section
           ref={node => this.section = node}
           style={{ backgroundImage: `url(${image})` }}
         >
