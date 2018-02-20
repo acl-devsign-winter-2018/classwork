@@ -14,8 +14,12 @@
   label {
     display: block;
   }
-  
-  section {
+
+  input[name=url] {
+    width: 250px;
+  }
+
+  section.ipsum {
     display: flex;
     align-items: center;
     justify-content: center;

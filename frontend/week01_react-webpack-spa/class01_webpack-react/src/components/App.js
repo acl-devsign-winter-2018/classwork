@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import cowsay from 'cowsay-browser';
 import faker from 'faker';
+import dom2image from 'dom-to-image';
+import fileSaver from 'file-saver';
 import './App.css';
 
 export default class App extends Component {
@@ -11,11 +13,14 @@ export default class App extends Component {
     this.state = {
       content: 'Hellloooo, pick a cow! Or generate some fake data!',
       cows: [],
-      current: 'cow'
+      current: 'cow'    
     };
 
     this.handleCowChange = this.handleCowChange.bind(this);
     this.handleFakeData = this.handleFakeData.bind(this);
+    this.handleBackground = this.handleBackground.bind(this);
+    this.handleExport = this.handleExport.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
   }
 
   componentDidMount() {
@@ -36,9 +41,30 @@ export default class App extends Component {
     });
   }
 
+  handleBackground({ target }) {
+    this.setState({
+      background: target.value
+    });
+  }
+
+  handleExport() {
+    dom2image.toBlob(this.section).then(blob => {
+      fileSaver.saveAs(blob, 'cute-cowsay.png');
+    });
+  }
+
+  handleUpload({ target }) {
+    const reader = new FileReader();
+
+    reader.readAsDataURL(target.files[0]);
+    
+    reader.onload = () => {
+      this.setState({ background: reader.result });
+    };
+  }
 
   render() {
-    const { content, cows, current } = this.state;
+    const { background, content, cows, current } = this.state;
 
     const cowSaid = cowsay.say({
       text: content, 
@@ -66,10 +92,26 @@ export default class App extends Component {
           <label>
             Fake Ipsum: <button onClick={this.handleFakeData}>Generate</button>
           </label>
+
+          <label>
+            Background: 
+            <input name="url" onChange={this.handleBackground}/>
+            <input type="file" onChange={this.handleUpload}/>
+          </label>
         </p>
 
-        <section>
+        <section 
+          className="ipsum" 
+          ref={node => this.section = node}
+          style={{
+            backgroundImage: background ? `url(${background})` : null
+          }}
+        >
           <pre>{cowSaid}</pre>
+        </section>
+
+        <section>
+          <button onClick={this.handleExport}>Export</button>
         </section>
 
       </div>
