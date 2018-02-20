@@ -11,10 +11,10 @@
     }    
   }
 
-  input[name=url] {
-    width: 250px;
+  label {
+    display: block;
   }
-
+  
   section {
     display: flex;
     align-items: center;
