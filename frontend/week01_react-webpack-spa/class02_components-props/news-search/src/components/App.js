@@ -1,6 +1,6 @@
-/* eslint react/prop-types: off */
 import React, { Component } from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
 
 export default class App extends Component {
 
@@ -37,7 +37,7 @@ class A extends Component {
     const { expanded } = this.state;
     const { number } = this.props;
 
-    const expansion = expanded && <B fooinator={number}/>;
+    const expansion = expanded && <B fooinator={'bar'}/>;
 
     return (
       <div>
@@ -52,6 +52,11 @@ class A extends Component {
 }
 
 class B extends Component {
+  
+  static propTypes = {
+    fooinator: PropTypes.number.isRequired
+  };
+
   render() {
     return <div>I am an instance of Component B my number is {this.props.fooinator}</div>;
   }
