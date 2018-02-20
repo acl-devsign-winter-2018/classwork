@@ -1,63 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
-import PropTypes from 'prop-types';
 
 export default class App extends Component {
 
   state = {
-    count: 1
-  };
-
-  handleMore = () => {
-    this.setState(prev => {
-      return { count: prev.count + 1 };
-    });
+    results: null,
+    total: 0,
+    query: null,
+    page: 1,
+    loading: false
   };
 
   render() {
-    const { count } = this.state;
+    // const { count } = this.state;
 
     return (
       <div>
-        <h1>Hello React Components</h1>
-        <button onClick={this.handleMore}>More!</button>
-        <A number={count}/>
+        <header>
+          Search Goes Here
+        </header>
+        <main>
+          {/* <Search onSearch={}/> */}
+          <div>Paging Goes Here</div>
+          <div>List Goes Here</div>
+        </main>
       </div>
     );
-  }
-}
-
-class A extends Component {
-
-  state = {
-    expanded: false
-  };
-
-  render() {
-    const { expanded } = this.state;
-    const { number } = this.props;
-
-    const expansion = expanded && <B fooinator={'bar'}/>;
-
-    return (
-      <div>
-        <div>I am an instance of Component A, my number is {number}</div>
-        <span onClick={() => this.setState(prev => ({ expanded: !prev.expanded }))}>
-          {expanded ? 'Close' : 'Open'}
-        </span>
-        {expansion}
-      </div>
-    );
-  }
-}
-
-class B extends Component {
-  
-  static propTypes = {
-    fooinator: PropTypes.number.isRequired
-  };
-
-  render() {
-    return <div>I am an instance of Component B my number is {this.props.fooinator}</div>;
   }
 }
