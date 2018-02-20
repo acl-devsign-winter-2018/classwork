@@ -2,8 +2,9 @@ Components and Props
 ===
 
 ## Questions and Feedback?
-* Project Template (but make updates to babel)
+
 * ?
+* Project Template (but make updates to babel)
 
 ## Learning Objectives
 
@@ -20,6 +21,7 @@ Components and Props
 
 * Add `.travis.yml`
 * Let's add Object Spread and Class Properties to `babel`
+    * `> npm i babel-plugin-transform-class-properties babel-plugin-tnsform-class-properties babel-plugin-transform-object-rest-spread -D`
 * Conditional rendering via if or ternary (loading example)
 
 ## Instantiate a React Component (Birds and the Bees of Parent/Child Components)
@@ -50,11 +52,11 @@ const myComponent = new MyComponent({
 ## State and Props
 
 * Rules of state
-    * Sibling components that share state? Must live in common ancestor
     * Push state a far down as possible
+    * Sibling components that share state? Must live in common ancestor
 * Passing functions as actions
-	  * "events up"
-* Props are state passed from a parent component
+	* "events up"
+* Props are state (or props) passed from a parent component
     * Child components **never** modify props directly
 * And while we are mentioning it:
     * Never set `state` outside of constructor
@@ -70,6 +72,7 @@ const myComponent = new MyComponent({
 	* [Defaults](https://reactjs.org/docs/typechecking-with-proptypes.html#default-prop-values)
 
 ## API Services
+
 * Own folder
     * file per resource
     * or single api if few resources
