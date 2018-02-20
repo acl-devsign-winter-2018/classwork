@@ -2,6 +2,7 @@ Components and Props
 ===
 
 ## Questions and Feedback?
+* Project Template (but make updates to babel)
 * ?
 
 ## Learning Objectives
@@ -10,6 +11,10 @@ Components and Props
 * Students will learn to validate props with PropTypes
 * Students will learn to manage controlled inputs
 * Students will learn to lift state shared across components to common ancestor
+
+## Start at the End
+
+[Review Lab](https://github.com/acl-devsign-winter-2018/search-all-the-things/blob/master/LAB.md)
 
 ## Misc
 
