@@ -11,37 +11,32 @@ export default class App extends Component {
 
   state = {
     articles: null,
-    total: 0,
-    topic: null,
+    topic: '',
     page: 1,
+    perPage: 20,
+    totalResults: 0,
     loading: false,
     error: null
   };
 
   searchNews = () => {
-    this.setState({
-      loading: true,
-      error: null
-    });
+    const { topic, sources, page, perPage } = this.state;
 
-    const { topic, page } = this.state;
-
-    search(topic, page, PAGE_SIZE)
+    this.setState({ loading: true, error: null });
+    
+    search({ topic, sources }, page, perPage)
       .then(
         ({ articles, totalResults }) => {
           this.setState({ articles, totalResults });
-        },
-        error => {
-          this.setState({ error, articles: null });
-        }
-      )
+        }, 
+        error => this.setState({ error }))
       .then(() => {
         this.setState({ loading: false });
       });
   };
 
-  handleSearch = topic => {
-    this.setState({ topic }, this.searchNews);
+  handleSearch = (search) => {
+    this.setState(search, this.searchNews);
   };
 
   handlePrev = () => this.handlePaging(-1);
@@ -57,9 +52,6 @@ export default class App extends Component {
   render() {
     const { articles, error, loading, page, topic, totalResults } = this.state;
 
-    const resultsHeader = <div>Search for &quot;{topic}&quot; found {totalResults} matches</div>;
-    const noSearch = <div>Please search above</div>;
-
     return (
       <div className={styles.app}>
         <header>
@@ -67,7 +59,13 @@ export default class App extends Component {
         </header>
         <main>
           <div className="search-header">
-            {articles ? resultsHeader : noSearch}
+            {articles ? 
+              <div>
+                <h4>Search for &quot;{topic}&quot; found {totalResults} matches</h4>
+              </div> 
+              : 
+              <div>Please search above</div>
+            }
           </div>
 
           <div>{loading && 'Loading...'}</div>
@@ -76,7 +74,7 @@ export default class App extends Component {
           {articles && (
             <div>
               <Paging totalResults={totalResults} 
-                page={page}
+                page={page} 
                 perPage={PAGE_SIZE} 
                 onPrev={this.handlePrev} 
                 onNext={this.handleNext}/>

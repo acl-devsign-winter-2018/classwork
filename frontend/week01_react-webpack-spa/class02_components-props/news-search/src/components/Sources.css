@@ -1,0 +1,5 @@
+:local(.sources) {
+  li {
+    display: inline-block;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Search.css';
+import Sources from './Sources';
 
 export default class Search extends Component {
 
@@ -9,30 +10,33 @@ export default class Search extends Component {
   };
 
   state = {
-    search: ''
+    topic: '',
+    sources: []
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { search } = this.state;
-    if(!search.trim()) return;
-
-    this.props.onSearch(search);
+    this.props.onSearch({ ...this.state });
   };
 
-  handleChange = ({ target }) => {
-    this.setState({ search: target.value });
+  handleTopic = ({ target }) => {
+    this.setState({ topic: target.value });
+  };
+
+  handleSources = sources => {
+    this.setState({ sources });
   };
 
   render() {
-    const { search } = this.state;
+    const { topic } = this.state;
 
     return (
       <form className={styles.search} onSubmit={this.handleSubmit}>
         <label>
           Search For:&nbsp;
-          <input value={search} onChange={this.handleChange}/>
+          <input value={topic} onChange={this.handleTopic}/>
         </label>
+        <Sources onSelect={this.handleSources}/>
         <button>Search</button>
       </form>
     );
