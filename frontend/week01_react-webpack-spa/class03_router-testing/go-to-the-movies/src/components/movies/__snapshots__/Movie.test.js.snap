@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie renders with props 1`] = `
+<li>
+  <h2>
+    Star Wars
+  </h2>
+  <p>
+    Released 
+    1977
+  </p>
+  <img
+    alt="Star Wars"
+    src="https://images-na.ssl-images-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+  />
+</li>
+`;

@@ -1,0 +1,6 @@
+@import './Paddings.css';
+
+li {
+  display: inline-block;
+  padding: $padding;
+}

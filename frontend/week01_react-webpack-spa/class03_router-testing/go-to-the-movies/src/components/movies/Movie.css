@@ -1,0 +1,14 @@
+:local(.movie) {
+  box-sizing: border-box;
+  list-style: none;
+  display: inline-block;
+  width: 150px;
+  height: 175px;
+
+  text-align: center;
+  border: 1px solid #aaa;
+
+  img {
+    width: 100%;
+  }
+}

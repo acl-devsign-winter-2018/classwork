@@ -1,4 +1,7 @@
 /* eslint-env node */
 module.exports = {
-  setupTestFrameworkScriptFile: `${__dirname}/enzyme.setup.js`
+  setupTestFrameworkScriptFile: '<rootDir>/enzyme.setup.js',
+  transform: {
+    '.*': '<rootDir>/node_modules/jest-css-modules'
+  }
 };

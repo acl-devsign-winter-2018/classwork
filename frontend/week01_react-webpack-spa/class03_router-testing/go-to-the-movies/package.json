@@ -8,7 +8,7 @@
     "prebuild": "npm run lint",
     "build": "webpack",
     "test": "jest",
-    "test:watch": "npm run test -- --watchAllnpm ",
+    "test:watch": "npm run test -- --watch",
     "start": "webpack-dev-server"
   },
   "author": "Marty Nelson <marty@martypdx.com>",
@@ -33,6 +33,8 @@
     "file-loader": "^1.1.7",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.4.0",
+    "jest-css-modules": "^1.1.0",
+    "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.0",
     "precss": "^3.1.0",
     "style-loader": "^0.20.2",
@@ -41,7 +43,9 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2"
   }
 }
