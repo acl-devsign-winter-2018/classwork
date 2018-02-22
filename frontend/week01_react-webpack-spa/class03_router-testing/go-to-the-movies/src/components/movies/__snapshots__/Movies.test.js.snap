@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies renders movies 1`] = `
+<ul>
+  <Movie
+    Poster="https://images-na.ssl-images-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+    Title="Star Wars: Episode IV - A New Hope"
+    Type="movie"
+    Year="1977"
+    imdbID="tt0076759"
+    key="tt0076759"
+  />
+  <Movie
+    Poster="https://images-na.ssl-images-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+    Title="Star Wars: Episode V - The Empire Strikes Back"
+    Type="movie"
+    Year="1980"
+    imdbID="tt0080684"
+    key="tt0080684"
+  />
+</ul>
+`;

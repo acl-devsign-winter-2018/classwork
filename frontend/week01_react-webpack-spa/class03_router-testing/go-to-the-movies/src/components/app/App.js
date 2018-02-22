@@ -1,23 +1,43 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Movies from '../movies/Movies';
+import Search from '../search/Search';
+import { search } from '../../services/movieApi';
+
 import './App.css';
 
 export default class App extends Component {
+  
   static propTypes = {
     home: PropTypes.bool
   };
+
+  state = {
+    movies: null,
+    error: null
+  };
+
+  handleSearch = searchTerm => {
+    this.setState({ error: null });
+
+    search(searchTerm)
+      .then(({ Search }) => {
+        this.setState({ movies: Search });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+  };
   
   render() {
+    const { movies, error } = this.state;
+
     return (
       <div>
-        { this.props.home ? <Home/> : null }
+        <Search onSearch={this.handleSearch}/>
+        {error && <div>{error}</div>}
+        {(!error && movies) && <Movies movies={movies}/>}
       </div>
     );
-  }
-}
-
-export class Home extends Component {
-  render() {
-    return <div>I am the HOME page!</div>;
   }
 }

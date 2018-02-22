@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/main.css';
-// import App from './components/app/App';
-import App from './components/movies/Movie';
+import App from './components/app/App';
 
 ReactDOM.render(
   <App/>,
