@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search Renders as Design 1`] = `
+exports[`SearchForm Renders as Design 1`] = `
 <form
   onSubmit={[Function]}
 >

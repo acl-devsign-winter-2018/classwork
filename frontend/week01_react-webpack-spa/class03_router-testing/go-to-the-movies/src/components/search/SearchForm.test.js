@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import Search from './Search';
+import SearchForm from './SearchForm';
 
-describe('Search', () => {
+describe('SearchForm', () => {
 
   it('Renders as Design', () => {
-    const wrapper = shallow(<Search onSearch={() => {}}/>);
+    const wrapper = shallow(<SearchForm onSearch={() => {}}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 
@@ -14,7 +14,7 @@ describe('Search', () => {
     let filter;
     const handleSearch = _filter => filter = _filter;
 
-    const wrapper = mount(<Search onSearch={handleSearch}/>);
+    const wrapper = mount(<SearchForm onSearch={handleSearch}/>);
 
     const search = 'Star Wars';
     
