@@ -13,7 +13,6 @@ export default class MovieDetail extends Component {
     movie: null
   };
 
-
   componentDidMount() {
     getMovie(this.props.imdbID)
       .then(movie => this.setState({ movie }));
