@@ -10,6 +10,10 @@ export default class Search extends Component {
     error: null
   };
 
+  componentDidMount() {
+    this.handleSearch('star wars');
+  }
+
   handleSearch = searchTerm => {
     this.setState({ error: null });
 

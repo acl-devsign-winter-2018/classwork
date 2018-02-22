@@ -18,9 +18,9 @@ export default class Movie extends Component {
     return (
       <li className={styles.movie}>
         <Link to={`/movies/${imdbID}`}>
-          <h2>{Title}</h2>
-          <p>Released {Year}</p>
           <img alt={Title} src={Poster}/>
+          <h3>{Title}</h3>
+          <p>Released {Year}</p>
         </Link>
       </li>
     );
