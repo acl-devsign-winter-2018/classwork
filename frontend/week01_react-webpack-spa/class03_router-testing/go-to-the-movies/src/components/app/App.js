@@ -18,7 +18,9 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/search" component={Search}/>
-              <Route path="/movies/:id" render={({ match }) => <MovieDetail imdbID={match.params.id}/>}/>
+              <Route path="/movies/:id" component={({ match, history }) => {
+                return <MovieDetail imdbID={match.params.id} history={history}/>;
+              }}/>
               <Redirect to="/"/>
             </Switch>
           </main>
