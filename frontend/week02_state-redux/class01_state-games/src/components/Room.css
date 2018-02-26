@@ -1,0 +1,27 @@
+.room {
+  background-size: cover;
+  height: 500px;
+  color: white;
+  padding: 10px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    li {
+      display: inline-block;
+      list-style: none;
+      width: 100px;
+      height: 50px;
+      padding-right: 5px;
+
+      button {
+        width: 100%;
+        background: steelblue;
+        color: white;
+        font-weight: bolder;
+      }
+    }
+  }
+}
