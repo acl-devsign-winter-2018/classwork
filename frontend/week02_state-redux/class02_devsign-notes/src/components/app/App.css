@@ -21,7 +21,16 @@
     grid-area: content; 
     background: $light; 
     color: $dark;
-    padding: $contentPadding;
+    padding: $contentPadding;   
+}
+
+#main-content > div {
+    animation: fadein .6s ease-out;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 #main-footer  {

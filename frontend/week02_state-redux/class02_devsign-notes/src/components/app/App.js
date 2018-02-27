@@ -30,6 +30,11 @@ export default class App extends Component {
 
 class Home extends Component {
   render() {
-    return <h1>Home page</h1>;
+    return (
+      <div>
+        <h1>Home page</h1>
+        <p>Yes, you have reached my app.</p>
+      </div>
+    );
   }
 }

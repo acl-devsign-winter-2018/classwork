@@ -5,7 +5,10 @@ export default class About extends Component {
   render() {
     return (
       <DocumentTitle title="Budget Tracker | About"> 
-        <h1>About page</h1>
+        <div>
+          <h1>About page</h1>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
       </DocumentTitle>
     );
   }
