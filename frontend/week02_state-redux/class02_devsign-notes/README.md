@@ -109,3 +109,5 @@ When combined with [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flex
 * **Plan your components** that use Grid carefully. Remember, there is no support yet for subgrids.
 
 * **Avoid flattening markup** to achieve grid goals. Keep your HTML semantic!
+
+* I recreated the [CSS Grid Holy Grail](https://bitsofco.de/holy-grail-layout-css-grid/) using React in today's demo files.
