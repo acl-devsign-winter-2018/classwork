@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import DocumentTitle from 'react-document-title';
 import Header from './Header';
 import About from '../about/About';
 import Contact from '../contact/Contact';
@@ -31,10 +32,12 @@ export default class App extends Component {
 class Home extends Component {
   render() {
     return (
-      <div>
-        <h1>Home page</h1>
-        <p>Yes, you have reached my app.</p>
-      </div>
+      <DocumentTitle title="Budget Tracker | Home"> 
+        <div>
+          <h1>Home page</h1>
+          <p>Yes, you have reached my app.</p>
+        </div>
+      </DocumentTitle>
     );
   }
 }
