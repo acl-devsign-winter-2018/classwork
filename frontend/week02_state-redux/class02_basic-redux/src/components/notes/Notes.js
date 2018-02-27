@@ -4,20 +4,27 @@ import { addNote } from './actions';
 
 class Notes extends Component {
   
+  state = {
+    text: ''
+  };
+
   handleSubmit = event => {
     event.preventDefault();
-    this.props.addNote({
-      text: event.target.elements.text.value
-    });
+    const { text } = this.state;
+    this.props.addNote({ text });
+    this.setState({ text: '' });
   };
 
   render() {
+    const { text } = this.state;
     const { notes } = this.props;
     return (
       <div>
         <pre>{JSON.stringify(notes, true, 2)}</pre>
         <form onSubmit={this.handleSubmit}>
-          <input name="text"/>
+          <input value={text} onChange={({ target }) => {
+            this.setState({ text: target.value });
+          }}/>
           <button type="submit">Add</button>
         </form>
       </div>);
