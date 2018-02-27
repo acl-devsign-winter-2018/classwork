@@ -2,7 +2,7 @@
 
 ## UX Strategy
 
-You aren't expected to formally complete the UX Strategy process due to lack of time, but you should discuss the following questions with your partner as you sketch your Budget Tracker layout.
+You aren't expected to formally complete the UX Strategy process due to lack of time, but you should **discuss** the following questions with your partner as you sketch your Budget Tracker layout.
 
 * **Who is this app for?** 
 * **What are the use circumstances for different types of users?**
