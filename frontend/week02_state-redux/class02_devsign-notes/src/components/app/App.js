@@ -20,7 +20,7 @@ export default class App extends Component {
               <Redirect to="/" />
             </Switch>
           </main>
-          <footer id="main-footer">
+          <footer id="main-footer" role="contentinfo">
             <small>&copy; 2018 this app.</small>
           </footer>
         </div>
