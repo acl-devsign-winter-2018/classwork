@@ -5,6 +5,23 @@ Class 31: Redux State Management
 * Reading - Before or After?
 * ?
 
+
+## Types of State
+
+### Application State
+Application state is any state that represents the core data of your application. This is your all your models. Examples include:  
+* Auth
+* User
+* Note
+* Article
+
+### View State
+View state is any state that has to do with how a specific component should look. Examples include:  
+* input's values
+* which menu item is focused
+* when to hide/show a section of the view
+* when  a hamburger menu is open or closed
+
 ## Redux
 
 ### Why?
