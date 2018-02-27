@@ -1,0 +1,33 @@
+@import '../../styles/variables.css';
+
+/* remember the holy grail layout with CSS grid? https://bitsofco.de/holy-grail-layout-css-grid/ */
+.grid-wrap {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+    "header"
+    "content"
+    "footer";
+    grid-template-rows: auto 1fr auto;
+}
+
+#main-header  {
+    grid-area: header;  
+    background: $dark;  
+    color: $light;
+}
+
+#main-content {
+    grid-area: content; 
+    background: $light; 
+    color: $dark;
+    padding: $contentPadding;
+}
+
+#main-footer  {
+    grid-area: footer;  
+    background: $dark;  
+    color: $light;
+    padding: $contentPadding;
+    text-align: center;
+}
