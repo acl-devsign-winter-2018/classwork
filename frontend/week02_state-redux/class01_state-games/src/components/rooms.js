@@ -2,7 +2,7 @@
 
 const treasure = {
   title: 'The Treasure Room',
-  image: 'https://www.videogamesartwork.com/sites/default/files/styles/image_node/public/images/image/1377175936/dragonscrown_environment_treasure_room.jpg?itok=j5G7V5on',
+  image: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTSWBaLG3ZQPaRCQGPrSlzxtzvg1PSsx6X4k__gSexxpij1fBBu3w',
   description: `There appears to be gold piled from floor to ceiling. You are
     rich beyond your wildest dreams! Congratulation adventurer!`,
   items: [],
@@ -30,6 +30,8 @@ const greatHall = {
 
         There is a golden door to the north.
       `;
+      return `As you drop the cage, the door breaks open and the bird flies out
+        and begins to pester and chase the spider, who runs away terrified never to come back.`;
     }
   }
 };
@@ -57,11 +59,24 @@ const courtyard = {
   items:[
     {
       key: 'bird',
-      description: 'Bird in a Cage'
+      description: 'Bird in a Cage',
+      prevent: 'The bird becomes highly agitated and you cannot pick up the cage'
     }
   ],
   doors: {
     w: 'dankChamber'
+  },
+  use(item) {
+    if(item.key === 'violin') {
+      const bird = this.items.find(item => item.key === 'bird');
+      if(!bird) return;
+
+      delete bird.prevent;
+      
+      return `The soothing sounds of the violin seems to bring peace to the bird.
+        Apparently the violin was magical, because as you finish your song it disappears 
+        into mist.`;
+    }
   }
 };
 

@@ -4,7 +4,11 @@
   color: white;
   padding: 10px;
 
-  ul {
+  p.action {
+    font-weight: bolder;
+  }
+
+  ul.doors {
     margin: 0;
     padding: 0;
     display: flex;
