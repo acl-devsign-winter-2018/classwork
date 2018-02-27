@@ -36,7 +36,7 @@ Because React is new to us, it's easy to forget to apply principles we've alread
    <input id="userName" type="text" name="name"/>
    ```
 
-* The [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) plugin recommends using `for` (or in this case, `htmlFor`) **AND nesting the form widget within a `label`**, not one or the other:
+* The [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) plugin recommends using `for` (or in this case, `htmlFor`) **AND** nesting the form widget within a `label`, **not** one or the other:
 
    ```
    <label htmlFor="userName">
