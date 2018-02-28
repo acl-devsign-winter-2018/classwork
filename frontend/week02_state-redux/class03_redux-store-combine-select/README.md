@@ -1,167 +1,67 @@
-Class 31: Redux State Management
+Redux - Store, Combine Reducers, Selectors
 ===
 
-## Questions/Feedback
-* Reading - Before or After?
+## Misc
+* React Quiz
 * ?
 
-
-## Types of State
-
-### Application State
-Application state is any state that represents the core data of your application. This is your all your models. Examples include:  
-* Auth
-* User
-* Note
-* Article
-
-### View State
-View state is any state that has to do with how a specific component should look. Examples include:  
-* input's values
-* which menu item is focused
-* when to hide/show a section of the view
-* when  a hamburger menu is open or closed
-
-## Redux
-
-### Why?
-
-* Avoid bugs in complex apps
-* State maintenance enforced as separate layer than view
-* Simplified data model (single store)
-* Enforce "Smart" vs "Dumb" Components 
-* Redux goodies: time travel, undo, etc.
-
-### Details
-
-* Redux is simple, moving parts are complex
-* Not part of react, just an app state management library
-
-### Flow
-
-<img alt="flow" src="https://julienrenaux.fr/wp-content/uploads/2016/05/redux_diagram.png" width="200">
-
-### Using with React
-
-[`react-redux` - Redux for React](http://redux.js.org/docs/basics/UsageWithReact.html)
-
-### Three Principals
-
-1. Single source of truth
-    > The state of your whole application is stored in an object tree within a single store.
-1. State is read-only
-    > The only way to change the state is to emit an action, an object describing what happened.
-1. Changes are made with pure functions
-    > To specify how the state tree is transformed by actions, you write pure reducers.
-
-### Install
-
-```
-> npm i redux react-redux -S
-```
+## Redux Review
 
 ### Store
 
 1. Combination of state and reducers (which take actions)
 1. State is immutable
 
-#### Create the Store
+* `createStore(reducer[, initialState, applyMiddleware])`
+    * optional: `initialState`, `applyMiddleware`
+* Store methods are generally handled by adapter to the view (`react-redux`):
+    * `dispatch` - send an action to the store reducer
+    * `subscribe(listener)` - be notified when store state "changes"
+    * `getState()` - get the current store state
 
-* Single store for the app
-* Usually in `index.js`, wrap `<App/>`
-* Create using:
+So, we need a reducer...
+
+### Combine Reducers
+
+Perform discrete change of store (by creating a new state) based on an action. 
+
+Don't need to be in one file. Use `combineReducers`. These are "segmented" by part of the
+store that you need. They don't have access (by default) to rest of store. 
+
+(Typically this is a good thing, but we'll see with thunks and async where it makes sense, and then provide a way to pass more data from store if needed.)
+
+**BUT**, all actions still flow through all reducers because one action may require changes to multiple parts of the state.
+
 ```js
+// file: ./reducers/index.js
+
+import { combineReducers } from 'redux';
+// sibling files in "./reducers":
+import stores from './stores';
+import store from './store';
+import pets from './pets';
+
+export default combineReducers({
+  stores,
+  store,
+  pets
+});
+
+// file: ./index.js
 import { createStore } from 'redux';
+import reducer from './reducers/index';
 
 const store = createStore(reducer);
+
 ```
 
-### Reducers
+Multiple reducers can respond to the same action. 
 
-Perform discrete changes to store (by creating a new state) based on an action. 
+### Testing Reducers
 
-Best practice in react/redux is immutability: Create a new state object.
+Reducers are pure functions, we simply pass current state and action
+and assert that response is expected.
 
-```js
-function reducer(state, action) {
-    // choose based on action
-    switch(action.type) {
+### Selectors
 
-    }
-    // best practice (and for multiple reducers) return state
-    return state // or use default on switch
-}
-```
-
-#### Why immutable data?
-
-##### Review Component Life-Cycle
-
-* Components are reused
-	* Re-introduce `key`
-		* Component reused by default
-	* [Component Lifecycle Methods](https://facebook.github.io/react/docs/react-component.html)
-		* `constructor`
-		* `componentWillMount`
-            * Nobody uses this `¯_(ツ)_/¯`
-        * `componentDidMount`
-			* [Fetching Data](https://daveceddia.com/where-fetch-data-componentwillmount-vs-componentdidmount/)
-		* `componentWillReceiveProps`
-			* Need to use when updating component that does not re-render
-		* `shouldComponentUpdate`
-			* Prevents unnecessary updates
-		* `componentWillUpdate`* and `componentDidUpdate`*
-            * Nobody really uses these `¯_(ツ)_/¯`
-		* `render` +1
-    * Also check out [this blog post](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
-
-##### So What Does This Have to Do With Immutability
-
-* Architecture Diagram for state vs component updates
-
-#### Applying Immutability
-
-##### Editing Lists and Objects
-
-* List Operations
-    * Add
-    * Remove
-    * Edit
-* Change Object Properties
-
-#### Back to reducers...
-
-But what is a `reducer`???
-* Reducer takes `state` and `action`
-* Returns new state ("reduces" state based on action)
-
-### Action Types
-* Use `const ACTION_NAME` because actions are used in both:
-    * reducer (to know "what" action)
-    * actions (returned as `type`)
-
-### Actions
-
-For now, actions will be functions that return the action
-with the given params.
-
-Use `type`, other props are up to you, but "standard" is to use `payload`
-    
-### "Connect" to your component
-
-Using `react-redux`, "connect" to component (via implicit container)
-
-* `mapStateToProps` - for each new state (_from the store_) what should the props be?
-* `dispatch` - function to send ("dispatches") "action" requests
-    * Usage: `dispatch(action(args))`
-    * Usage Simple: `bindActionCreators`
-    * Usage Simplest: Pass Object literal with keys of action creator functions
-
-## Summary
-
-1. `store` - takes `reducer`
-1. `reducer`(s) - takes actions with `type` and `payload`
-1. `constants` - "type" identifier for each `action`
-1. `action creators`(s) - take (optional) parameter arguments and returns
-action with `type` and `payload`
-1. `connect` - a utility for interfacing `redux` store with `react` components
+Data projections are called "selectors". Example: filtered list.
