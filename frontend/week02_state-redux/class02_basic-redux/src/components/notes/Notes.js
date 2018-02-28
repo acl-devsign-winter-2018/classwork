@@ -1,27 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from './actions';
+import Note from './Note';
+import NoteForm from './NoteForm';
 
 class Notes extends Component {
   
-  handleSubmit = event => {
-    event.preventDefault();
-    const input = event.target.elements.text;
-    this.props.addNote({
-      text: input.value
-    });
-    input.value = '';
-  };
-
   render() {
-    const { notes } = this.props;
+    const { notes, addNote } = this.props;
     return (
       <div>
-        <pre>{JSON.stringify(notes, true, 2)}</pre>
-        <form onSubmit={this.handleSubmit}>
-          <input name="text"/>
-          <button type="submit">Add</button>
-        </form>
+        <NoteForm onEdit={addNote}/>
+        <ul>
+          {notes.map(note => <Note key={note.id} {...note}/>)}
+        </ul>
       </div>);
   }
 }
