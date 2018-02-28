@@ -41,6 +41,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "@std/esm": "^0.23.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",

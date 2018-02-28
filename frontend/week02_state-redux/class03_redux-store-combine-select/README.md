@@ -3,6 +3,7 @@ Redux - Store, Combine Reducers, Selectors
 
 ## Misc
 * React Quiz
+* Review rest of Week in Canvas
 * ?
 
 ## Redux Review
