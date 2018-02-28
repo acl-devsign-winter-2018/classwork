@@ -12,7 +12,7 @@ Class 31: Redux State Management
 Application state is any state that represents the core data of your application. This is your all your models. Examples include:  
 * Auth
 * User
-* Store
+* Note
 * Article
 
 ### View State
@@ -100,7 +100,7 @@ function reducer(state, action) {
 * Components are reused
 	* Re-introduce `key`
 		* Component reused by default
-	* [Component Life Cycle Methods](https://facebook.github.io/react/docs/react-component.html)
+	* [Component Lifecycle Methods](https://facebook.github.io/react/docs/react-component.html)
 		* `constructor`
 		* `componentWillMount`
             * Nobody uses this `¯_(ツ)_/¯`
