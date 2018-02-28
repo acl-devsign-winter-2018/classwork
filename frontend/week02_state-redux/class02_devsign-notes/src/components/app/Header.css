@@ -1,0 +1,24 @@
+@import '../../styles/variables.css';
+
+#main-header {
+    #logo {
+        width: 64px;
+        margin: .5rem auto;
+    }
+    nav {
+        background: $blueDark;
+        padding: .5rem 0;
+        ul {
+            display: flex;
+            justify-content: center;
+            li {
+                margin: 0 .5rem;
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
