@@ -6,9 +6,11 @@ class Notes extends Component {
   
   handleSubmit = event => {
     event.preventDefault();
+    const input = event.target.elements.text;
     this.props.addNote({
-      text: event.target.elements.text.value
+      text: input.value
     });
+    input.value = '';
   };
 
   render() {
