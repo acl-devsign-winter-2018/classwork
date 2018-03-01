@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-export default class NoteForm extends Component {
+export default class ItemForm extends Component {
   
   constructor(props) {
     super(props);
 
     this.state = {
+      text: '',
       ...props
     };
   }

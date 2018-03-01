@@ -1,9 +1,10 @@
 import { createStore, combineReducers } from 'redux';
 import { notes } from './components/notes/reducers';
-// import { comments, commentsByNote } from './components/comments/reducers';
+import { commentsByNote } from './components/comments/reducers';
 
 const reducer = combineReducers({
-  notes
+  notes,
+  commentsByNote
 });
 
 const store = createStore(

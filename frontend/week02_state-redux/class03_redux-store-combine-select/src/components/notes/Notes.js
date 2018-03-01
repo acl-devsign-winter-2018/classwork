@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from './actions';
 import Note from './Note';
-import NoteForm from './NoteForm';
+import ItemForm from '../common/ItemForm';
 
 class Notes extends Component {
   
@@ -17,7 +17,7 @@ class Notes extends Component {
       <div>
         <h2>Notes</h2>
         <section>
-          <NoteForm onEdit={addNote}/>
+          <ItemForm onEdit={addNote}/>
         </section>
         <ul>
           {notes.map(note => <Note key={note.id} {...note}/>)}
