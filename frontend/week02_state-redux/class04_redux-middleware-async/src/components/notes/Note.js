@@ -24,7 +24,7 @@ class Note extends Component {
   render() {
     // remember to use the injected prop for dispatch, 
     // not the imported action creator
-    const { id, created, text, removeNote } = this.props;
+    const { id, created, text, removeNote, count } = this.props;
     const { editing } = this.state;
 
     return (
@@ -44,7 +44,7 @@ class Note extends Component {
             <button onClick={this.handleToggleEdit}>✎</button>
           </article>
         }
-        
+        <p>{count} comment(s)</p>
         <Comments noteId={id}/>
       </li>
     );
@@ -52,6 +52,11 @@ class Note extends Component {
 }
 
 export default connect(
-  null,
-  { updateNote, removeNote }
+  ({ commentsByNote }) => ({ commentsByNote }),
+  { updateNote, removeNote },
+  ({ commentsByNote }, actions, ownProps) => ({
+    ...actions,
+    ...ownProps,
+    count: commentsByNote[ownProps.id].length
+  })
 )(Note);
