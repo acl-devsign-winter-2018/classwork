@@ -1,9 +1,12 @@
 export const NOTE_ADD = 'NOTE_ADD';
 export const NOTE_REMOVE = 'NOTE_REMOVE';
 export const NOTE_UPDATE = 'NOTE_UPDATE';
+export const NOTE_LOAD = 'NOTE_LOAD';
 
 export function notes(state = [], { type, payload }) {
   switch(type) {
+    case NOTE_LOAD:
+      return payload;
     case NOTE_ADD:
       return [
         ...state,

@@ -1,4 +1,4 @@
-import { notes, NOTE_ADD, NOTE_REMOVE, NOTE_UPDATE } from './reducers';
+import { notes, NOTE_ADD, NOTE_REMOVE, NOTE_UPDATE, NOTE_LOAD } from './reducers';
 
 /*
 NOTE_ADD
@@ -40,4 +40,15 @@ it('Updates a note', () => {
 
   const state = notes([noteToAdd], { type: NOTE_UPDATE, payload: updated });
   expect(state).toEqual([{ ...noteToAdd, ...updated }]);
+});
+
+it('Loads notes', () => {
+  const notesToLoad = [
+    { id: 123, text: 'Note One' },
+    { id: 456, text: 'Note Two' }
+  ];
+
+  const state = notes([], { type: NOTE_LOAD, payload: notesToLoad });
+  expect(state).toEqual(notesToLoad);
+
 });

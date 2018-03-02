@@ -24,7 +24,7 @@ class Note extends Component {
   render() {
     // remember to use the injected prop for dispatch, 
     // not the imported action creator
-    const { id, timestamp, text, removeNote } = this.props;
+    const { id, created, text, removeNote } = this.props;
     const { editing } = this.state;
 
     return (
@@ -40,7 +40,7 @@ class Note extends Component {
               {text}
               &nbsp;<button onClick={() => removeNote(id)}>X</button>
             </p>
-            <time>{timestamp.toLocaleDateString()}</time>
+            <time>{new Date(created).toLocaleDateString()}</time>
             <button onClick={this.handleToggleEdit}>✎</button>
           </article>
         }

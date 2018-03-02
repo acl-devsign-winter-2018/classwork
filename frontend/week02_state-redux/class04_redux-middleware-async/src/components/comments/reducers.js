@@ -1,10 +1,15 @@
-import { NOTE_ADD, NOTE_REMOVE } from '../notes/reducers';
+import { NOTE_ADD, NOTE_REMOVE, NOTE_LOAD } from '../notes/reducers';
 
 export const COMMENT_ADD = 'COMMENT_ADD';
 export const COMMENT_REMOVE = 'COMMENT_REMOVE';
 
 export function commentsByNote(state = {}, { type, payload }) {
   switch(type) {
+    case NOTE_LOAD:
+      return payload.reduce((map, note) => {
+        map[note.id] = note.comments;
+        return map;
+      }, {});
     case NOTE_ADD:
       return {
         ...state,
@@ -23,7 +28,7 @@ export function commentsByNote(state = {}, { type, payload }) {
         ...state,
         [noteId]: [
           ...noteComments,
-          payload
+          payload.comment
         ]
       };
     }

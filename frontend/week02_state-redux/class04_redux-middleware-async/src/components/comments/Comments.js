@@ -12,13 +12,13 @@ class Comments extends Component {
   };
 
   render() {
-    const { comments } = this.props;
+    const { comments, noteId } = this.props;
     return (
       <section>
         <ItemForm onEdit={this.handleAdd}/>
         <ul>
           {comments.map(comment => (
-            <Comment key={comment.id} {...comment}/>
+            <Comment key={comment.id} noteId={noteId} {...comment}/>
           ))}
         </ul>
       </section>

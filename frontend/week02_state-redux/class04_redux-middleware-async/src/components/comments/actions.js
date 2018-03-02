@@ -1,19 +1,31 @@
 import { COMMENT_ADD, COMMENT_REMOVE } from './reducers';
-import shortid from 'shortid';
+import notesApi from '../../services/notesApi';
 
 export function addComment(noteId, comment) {
-  comment.id = shortid();
-  comment.noteId = noteId;
-
-  return {
-    type: COMMENT_ADD,
-    payload: comment
+  return dispatch => {
+    return notesApi.addComment(noteId, comment)
+      .then(comment => {
+        dispatch({
+          type: COMMENT_ADD,
+          payload: {
+            noteId,
+            comment
+          }
+        });
+      });
   };
 }
 
 export function removeComment(id, noteId) {
-  return {
-    type: COMMENT_REMOVE,
-    payload: { id, noteId }
+
+  return dispatch => {
+    return notesApi.removeComment(noteId, id)
+      .then(() => {
+        dispatch({
+          type: COMMENT_REMOVE,
+          payload: { id, noteId }
+        });
+      });
   };
+
 }

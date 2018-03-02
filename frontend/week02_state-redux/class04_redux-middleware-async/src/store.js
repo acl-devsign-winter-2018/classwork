@@ -1,4 +1,5 @@
 import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
+import thunk from 'redux-thunk';
 import { notes } from './components/notes/reducers';
 import { commentsByNote } from './components/comments/reducers';
 
@@ -47,9 +48,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducer,
   composeEnhancers(
-    applyMiddleware(
-      logger
-    ) 
+    applyMiddleware(thunk) 
   )
 );
 

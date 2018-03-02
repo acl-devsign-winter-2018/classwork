@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addNote } from './actions';
+import { addNote, loadNotes } from './actions';
 import Note from './Note';
 import ItemForm from '../common/ItemForm';
 
 class Notes extends Component {
   
   componentDidMount() {
-    this.props.addNote({ text: 'Example Note One' });
-    this.props.addNote({ text: 'Example Note Two' });
+    this.props.loadNotes();
   }
 
   render() {
@@ -29,11 +28,7 @@ class Notes extends Component {
 export default connect(
   // map state to props
   state => ({ notes: state.notes }),
-  // dumbbell way:
-  // ({ notes }) => ({ notes }),
   
   // map dispatch to props
-  // this gets modified to work as expected,
-  // more on the guts tomorrow
-  { addNote }
+  { addNote, loadNotes }
 )(Notes);

@@ -1,7 +1,7 @@
 import { addNote, updateNote, removeNote } from './actions';
 import { NOTE_ADD, NOTE_UPDATE, NOTE_REMOVE } from './reducers';
 
-it('creates an add action', () => {
+it.skip('creates an add action', () => {
   const { type, payload } = addNote({ text: 'the note' });
   expect(type).toBe(NOTE_ADD);
   const { text, id, timestamp } = payload;
@@ -10,7 +10,7 @@ it('creates an add action', () => {
   expect(timestamp).toBeTruthy();
 });
 
-it('creates an update action', () => {
+it.skip('creates an update action', () => {
   const action = updateNote({ id: 123, text: 'updated' });
   expect(action).toEqual({
     type: NOTE_UPDATE,
@@ -21,7 +21,7 @@ it('creates an update action', () => {
   });
 });
 
-it('create a remove action', () => {
+it.skip('create a remove action', () => {
   const action = removeNote(123);
   expect(action).toEqual({
     type: NOTE_REMOVE,

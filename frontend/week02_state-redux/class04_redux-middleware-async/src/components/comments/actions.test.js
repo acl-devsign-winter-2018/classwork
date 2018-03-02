@@ -1,7 +1,7 @@
 import { addComment, removeComment } from './actions';
 import { COMMENT_ADD, COMMENT_REMOVE } from './reducers';
 
-it('add comment', () => {
+it.skip('add comment', () => {
   const noteId = 123;
   const text = 'Test Comment';
   const { type, payload } = addComment(noteId, { text });
@@ -11,7 +11,7 @@ it('add comment', () => {
   expect(payload.text).toBe(text);
 });
 
-it('remove comment', () => {
+it.skip('remove comment', () => {
   const id = 123;
   const noteId = 456;
   const action = removeComment(id, noteId);

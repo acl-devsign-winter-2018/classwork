@@ -1,42 +1,59 @@
-import { NOTE_ADD, NOTE_UPDATE, NOTE_REMOVE } from './reducers';
-import shortid from 'shortid';
+import { NOTE_ADD, NOTE_LOAD, NOTE_UPDATE, NOTE_REMOVE } from './reducers';
+import notesApi from '../../services/notesApi';
 
-import store from '../../store';
+export function loadNotes() {
+  return dispatch => {
+    return notesApi.load()
+      .then(notes => {
+        dispatch({
+          type: NOTE_LOAD,
+          payload: notes
+        });
+      });
+  };
+}
 
 export function addNote(note) {
-
   return (dispatch) => {
-    // server should do these:
-    // note.id = shortid();
-    // note.timestamp = new Date();
-    
-    // call the server with POST /api/note
     return notesApi.add(note)
       .then(savedNote => {
-
         const action = {
           type: NOTE_ADD,
           payload: savedNote
         };
 
-        //dispatch action here!
         dispatch(action);
       });
-    
-
   };
 }
 
+// could be rewritten:
+// export const addNote = note => dispatch => notesApi.add(note)
+// .then(savedNote => dispatch({
+//     type: NOTE_ADD,
+//     payload: savedNote
+// }));
+
 export function updateNote(note) {
-  return {
-    type: NOTE_UPDATE,
-    payload: note
+  return dispatch => {
+    return notesApi.update(note)
+      .then(updatedNote => {
+        dispatch({
+          type: NOTE_UPDATE,
+          payload: updatedNote
+        });
+      });
   };
 }
 
 export function removeNote(id) {
-  return {
-    type: NOTE_REMOVE,
-    payload: id
+  return dispatch => {
+    return notesApi.remove(id)
+      .then(() => {
+        dispatch({
+          type: NOTE_REMOVE,
+          payload: id
+        });
+      });
   };
 }
