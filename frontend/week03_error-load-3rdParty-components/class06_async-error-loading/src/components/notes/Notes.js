@@ -7,14 +7,18 @@ import ItemForm from '../common/ItemForm';
 class Notes extends Component {
   
   componentDidMount() {
-    this.props.loadNotes();
+    this.handleLoad();
   }
+  
+  handleLoad = () => {
+    this.props.loadNotes();
+  };
 
   render() {
     const { notes, addNote } = this.props;
     return (
       <div>
-        <h2>Notes</h2>
+        <h2 onClick={this.handleLoad}>Notes</h2>
         <section>
           <ItemForm onEdit={addNote}/>
         </section>

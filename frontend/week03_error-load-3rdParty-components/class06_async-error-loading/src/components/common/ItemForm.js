@@ -15,9 +15,12 @@ export default class ItemForm extends Component {
     event.preventDefault();
     this.props.onEdit({
       ...this.state
-    });
+    })
+      .then(() => {
+        this.setState({ text: '' });
+      });
 
-    this.setState({ text: '' });
+    
   };
 
   handleChange = ({ target }) => {

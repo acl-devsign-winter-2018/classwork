@@ -1,5 +1,15 @@
-import { addNote, updateNote, removeNote } from './actions';
-import { NOTE_ADD, NOTE_UPDATE, NOTE_REMOVE } from './reducers';
+import { addNote, doLoadNotes, removeNote, updateNote } from './actions';
+import { NOTE_ADD, NOTE_LOAD, NOTE_REMOVE, NOTE_UPDATE } from './reducers';
+
+it.skip('loads notes', () => {
+  const { type, payload } = doLoadNotes({
+    load() { return 'mock result'; }
+  })();
+
+  expect(type).toBe(NOTE_LOAD);
+  expect(payload).toEqual('mock result');
+
+});
 
 it.skip('creates an add action', () => {
   const { type, payload } = addNote({ text: 'the note' });
