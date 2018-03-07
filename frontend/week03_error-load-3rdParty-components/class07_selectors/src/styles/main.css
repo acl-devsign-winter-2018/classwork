@@ -1,3 +1,50 @@
+html, body {
+  height: 100%
+}
+
 body {
   font-family: sans-serif;
+}
+
+header {
+  background: steelblue;
+  color: white;
+  padding: 10px;
+  position: relative;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      margin-right: 10px;
+
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+
+
+.loading {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  background: red;
+  color: white;
+  position: absolute;
+  padding: 10px;
+  text-align: center;
+  top: 95%;
+  left: 20px; right: 20px;
+  opacity: 0.7;
 }

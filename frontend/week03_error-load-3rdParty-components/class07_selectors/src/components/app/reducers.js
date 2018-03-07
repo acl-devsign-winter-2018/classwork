@@ -3,6 +3,8 @@ export const LOAD_END = 'LOAD_END';
 export const ERROR = 'ERROR';
 export const ERROR_CLEAR = 'ERROR_CLEAR';
 
+export const loadingSelector = state => state.loading;
+
 export function loading(state = false, { type }) {
   switch(type) {
     case LOAD_START:
@@ -13,6 +15,8 @@ export function loading(state = false, { type }) {
       return state;
   }
 }
+
+export const errorSelector = state => state.error;
 
 const initialErrorState = null;
 

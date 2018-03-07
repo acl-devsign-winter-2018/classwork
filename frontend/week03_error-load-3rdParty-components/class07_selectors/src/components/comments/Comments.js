@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addComment } from './actions';
+import { commentsSelector } from './reducers';
 import ItemForm from '../common/ItemForm';
 import Comment from './Comment';
 
@@ -27,17 +28,10 @@ class Comments extends Component {
 }
 
 export default connect(
-  // mapStateToProps:
-  ({ commentsByNote }) => ({ commentsByNote }),
-  // mapDispatchToProps:
-  { addComment },
-  // mergeProps
-  // api is: (stateProps, dispatchProps, ownProps) => {}
-  ({ commentsByNote }, { addComment }, { noteId }) => {
-    return {
-      comments: commentsByNote[noteId],
-      addComment,
-      noteId
-    };
-  }
+  (state, { noteId }) => ({ 
+    comments: commentsSelector(state, noteId),
+    noteId
+  }),
+  { addComment }
+
 )(Comments);

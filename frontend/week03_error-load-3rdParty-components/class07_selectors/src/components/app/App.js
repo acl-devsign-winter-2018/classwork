@@ -1,33 +1,28 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import Header from './Header';
+import Loading from './Loading';
 import Notes from '../notes/Notes';
+import Users from '../users/Users';
 
-class App extends Component {
+
+export default class App extends Component {
   
   render() {
-    const { loading, error } = this.props;
     return (
-      <div>
-        <p>{loading ? 'I am loading' : 'I am NOT loading'}</p>
-        <Notes/>
-        { error && 
-          <pre style={{ color: 'red' }}>
-            {error.message 
-              ? error.message 
-              : error.error ? error.error : error
-            }
-          </pre>
-        }
-      </div>
+      <Router>
+        <div>
+          <Header/>
+          <main>
+            <Loading/>
+            <Switch>
+              <Route path="/users" component={Users}/>
+              <Route path="/notes/:user" component={Notes}/>
+              <Redirect to="/users"/>
+            </Switch>
+          </main>
+        </div>
+      </Router>
     );
   }
 }
-
-export default connect(
-  state => ({ 
-    loading: state.loading,
-    error: state.error 
-  }),
-  null
-)(App);
-

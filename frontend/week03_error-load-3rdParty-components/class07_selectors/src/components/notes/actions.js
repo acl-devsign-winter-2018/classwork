@@ -1,4 +1,4 @@
-import { NOTE_ADD, NOTE_LOAD, NOTE_UPDATE, NOTE_REMOVE } from './reducers';
+import { APPLY_FILTER, NOTE_ADD, NOTE_LOAD, NOTE_UPDATE, NOTE_REMOVE } from './reducers';
 import notesApi from '../../services/notesApi';
 
 
@@ -9,17 +9,17 @@ export const doLoadNotes = api => () => {
   };
 };
 
-export function loadNotes() {
+export function loadNotes(user) {
   return {
     type: NOTE_LOAD,
-    payload: notesApi.load()
+    payload: notesApi.load(user)
   };
 }
 
-export function addNote(note) {
+export function addNote(user, note) {
   return {
     type: NOTE_ADD,
-    payload: notesApi.add(note)
+    payload: notesApi.add(user, note)
   };
 }
 
@@ -34,5 +34,12 @@ export function removeNote(id) {
   return {
     type: NOTE_REMOVE,
     payload: notesApi.remove(id).then(() => id)
+  };
+}
+
+export function applyFilter(filter) {
+  return {
+    type: APPLY_FILTER,
+    payload: filter
   };
 }

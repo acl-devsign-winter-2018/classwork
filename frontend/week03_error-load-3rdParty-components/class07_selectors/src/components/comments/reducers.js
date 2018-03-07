@@ -3,6 +3,12 @@ import { NOTE_ADD, NOTE_REMOVE, NOTE_LOAD } from '../notes/reducers';
 export const COMMENT_ADD = 'COMMENT_ADD';
 export const COMMENT_REMOVE = 'COMMENT_REMOVE';
 
+const commentsByNoteSelector = state => state.commentsByNote;
+
+export const commentsSelector = (state, noteId) => {
+  return commentsByNoteSelector(state)[noteId];
+};
+
 export function commentsByNote(state = {}, { type, payload }) {
   switch(type) {
     case NOTE_LOAD:

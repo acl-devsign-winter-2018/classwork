@@ -1,6 +1,5 @@
 
-const user = 'martypdx';
-const URL = `http://localhost:3000/api/${user}/notes`;
+const URL = 'http://localhost:3000/api';
 
 const doFetch = (url, options = {}) => {
   return fetch(url, options)
@@ -15,12 +14,16 @@ const doFetch = (url, options = {}) => {
     });
 };
 
-function load() {
-  return doFetch(URL);
+function loadUsers() {
+  return doFetch(`${URL}/users`);
 }
 
-function add(note) {
-  return doFetch(URL, {
+function load(user) {
+  return doFetch(`${URL}/${user}/notes`);
+}
+
+function add(user, note) {
+  return doFetch(`${URL}/${user}/notes`, {
     method: 'POST',
     body: JSON.stringify(note),
     headers: {
@@ -30,7 +33,7 @@ function add(note) {
 }
 
 function update(note) {
-  return doFetch(`${URL}/${note.id}`, {
+  return doFetch(`${URL}/notes/${note.id}`, {
     method: 'PUT',
     body: JSON.stringify(note),
     headers: {
@@ -40,13 +43,13 @@ function update(note) {
 }
 
 function remove(id) {
-  return doFetch(`${URL}/${id}`, {
+  return doFetch(`${URL}/notes/${id}`, {
     method: 'DELETE'
   });
 }
 
 function addComment(noteId, comment) {
-  return doFetch(`${URL}/${noteId}/comments`, {
+  return doFetch(`${URL}/notes/${noteId}/comments`, {
     method: 'POST',
     body: JSON.stringify(comment),
     headers: {
@@ -56,7 +59,7 @@ function addComment(noteId, comment) {
 }
 
 function removeComment(noteId, commentId) {
-  return doFetch(`${URL}/${noteId}/comments/${commentId}`, {
+  return doFetch(`${URL}/notes/${noteId}/comments/${commentId}`, {
     method: 'DELETE',
   });
 }
@@ -64,6 +67,7 @@ function removeComment(noteId, commentId) {
 export default {
   add,
   load,
+  loadUsers,
   update,
   remove,
   addComment,
