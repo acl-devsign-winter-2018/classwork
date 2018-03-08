@@ -1,30 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { loadAlbums } from '../albums/actions';
+import Albums from '../albums/Albums';
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.loadAlbums();
-  }
-
   render() {
-    const { albums } = this.props;
-
     return (
       <div>
         <h1>Hello Actions</h1>
-        <ul>
-          {albums.map(album => (
-            <li key={album._id}>{album.name}</li>
-          ))}
-        </ul>
+        <Albums/>
+        <p>Some text in a paragraph</p>
       </div>
     );
   }
 }
 
-export default connect(
-  ({ albums }) => ({ albums }),
-  { loadAlbums }
-)(App);
+export default App;

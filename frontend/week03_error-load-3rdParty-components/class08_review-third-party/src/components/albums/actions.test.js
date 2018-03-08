@@ -1,9 +1,11 @@
 jest.mock('../../services/api', () => ({ 
-  getAlbums: jest.fn(() => Promise.resolve('PAYLOAD'))
+  getAlbums: jest.fn(() => Promise.resolve('PAYLOAD')),
+  deleteAlbum: jest.fn(() => Promise.resolve('SHOULD NOT BE PAYLOAD')),
+  postAlbum: jest.fn(() => Promise.resolve('PAYLOAD'))
 }));
 
-import { loadAlbums } from './actions';
-import { ALBUMS_LOAD } from './reducers';
+import { loadAlbums, addAlbum, removeAlbum } from './actions';
+import { ALBUMS_LOAD, ALBUM_ADD, ALBUM_REMOVE } from './reducers';
 
 describe('albums reducer', () => {
 
@@ -12,6 +14,24 @@ describe('albums reducer', () => {
     expect(type).toBe(ALBUMS_LOAD);
     return payload.then(result => {
       expect(result).toBe('PAYLOAD');
+    });
+  });
+
+  it('adds an album', () => {
+    const album = {};
+    const { type, payload } = addAlbum(album);
+    expect(type).toBe(ALBUM_ADD);
+    return payload.then(result => {
+      expect(result).toBe('PAYLOAD');
+    });
+  });
+
+  it('removes an album', () => {
+    const id = 'ID';
+    const { type, payload } = removeAlbum(id);
+    expect(type).toBe(ALBUM_REMOVE);
+    return payload.then(result => {
+      expect(result).toBe(id);
     });
   });
 

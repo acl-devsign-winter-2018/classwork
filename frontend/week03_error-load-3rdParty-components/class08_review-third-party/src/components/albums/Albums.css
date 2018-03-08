@@ -1,0 +1,5 @@
+:local(.albums) {
+  > p {
+    color: orange;
+  }
+}
