@@ -6,6 +6,7 @@ jest.mock('../../services/api', () => ({
 
 import { loadAlbums, addAlbum, removeAlbum } from './actions';
 import { ALBUMS_LOAD, ALBUM_ADD, ALBUM_REMOVE } from './reducers';
+import api from '../../services/api';
 
 describe('albums reducer', () => {
 
@@ -21,6 +22,7 @@ describe('albums reducer', () => {
     const album = {};
     const { type, payload } = addAlbum(album);
     expect(type).toBe(ALBUM_ADD);
+    expect(api.postAlbum).toBeCalledWith(album);
     return payload.then(result => {
       expect(result).toBe('PAYLOAD');
     });

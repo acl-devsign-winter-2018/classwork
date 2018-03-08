@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addAlbum } from './actions';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import { primary } from '../colors';
 import ReactModal from 'react-modal';
+import { addAlbum } from './actions';
+import { primary } from '../colors';
 
 const Button = styled.button`
   outline: 0;
@@ -27,12 +28,16 @@ class AddAlbum extends Component {
   };
 
   handleSubmit = event => {
-    const { addAlbum } = this.props;
+    const { addAlbum, history } = this.props;
     event.preventDefault();
 
     addAlbum({
       name: event.target.elements.name.value
-    }).then(this.handleCloseAdd);
+    }).then(album => {
+      this.handleCloseAdd();
+      // navigate to url
+      history.push(`/albums/${album._id}`);
+    });
   };
 
   render() {
@@ -74,7 +79,9 @@ const StyledTextControl = styled(TextControl)`
   font-weight: bolder;
 `;
 
-export default connect(
-  null,
-  { addAlbum }
-)(AddAlbum);
+export default withRouter(
+  connect(
+    null,
+    { addAlbum }
+  )(AddAlbum)
+);

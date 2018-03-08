@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const FancyListItem = styled.li`
@@ -8,12 +10,17 @@ const FancyListItem = styled.li`
 
 class Album extends PureComponent {
   render() {
-    const { name } = this.props;
+    const { _id, name } = this.props;
 
     return (
-      <FancyListItem name={name}>{name}</FancyListItem>
+      <FancyListItem name={name}>
+        <Link to={`/albums/${_id}`}>{name}</Link>
+      </FancyListItem>
     );
   }
 }
 
-export default Album;
+export default connect(
+  ({ albumsById }, { id }) => albumsById[id],
+  null
+)(Album);

@@ -16,7 +16,11 @@ export default class App extends Component {
           <main>
             <Loading/>
             <Switch>
-              <Route path="/users" component={Users}/>
+              <Route exact path="/users" component={Users}/>
+              <Route path="/users/:id/:foo" render={({ match, location, history }) => {
+                console.log(match);
+                return null;
+              }}/>
               <Route path="/notes/:user" component={Notes}/>
               <Redirect to="/users"/>
             </Switch>

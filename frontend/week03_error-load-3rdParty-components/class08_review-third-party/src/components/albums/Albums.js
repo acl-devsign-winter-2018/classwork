@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { loadAlbums } from '../albums/actions';
 import Album from './Album';
 import AddAlbum from './AddAlbum';
@@ -12,23 +13,29 @@ class Albums extends PureComponent {
   }
   
   render() {
-    const { albums } = this.props;
+    const { albums, recentAlbums } = this.props;
 
     return (
       <section className={styles.albums}>
         <AddAlbum/>
         <ul>
-          {albums.map(album => (
-            <Album key={album._id} {...album}/>
+          {albums.map(albumId => (
+            <Album key={albumId} id={albumId}/>
           ))}
         </ul>
         <p>Some orange text</p>
+        <h3>Recent Albums</h3>
+        <ul>
+          {recentAlbums.map(albumId => (
+            <Album key={albumId} id={albumId}/>
+          ))}
+        </ul>
       </section>
     );
   }
 }
 
 export default connect(
-  ({ albums }) => ({ albums }),
+  ({ albums, recentAlbums }) => ({ albums, recentAlbums }),
   { loadAlbums }
 )(Albums);

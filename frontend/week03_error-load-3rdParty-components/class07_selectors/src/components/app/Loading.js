@@ -11,7 +11,7 @@ class Loading extends Component {
     
     return (
       <div className="loading">
-        <img src={`/${spinner}`}/>
+        <img src={`${spinner}`}/>
       </div>
     );
   }

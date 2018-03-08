@@ -3,6 +3,9 @@ Moar React and Third Party Components
 
 ## Agenda
 
+* react router props
+* webpack proxy with two part path, `/albums/123`
+  * And what about ghpages?
 * accessing the jest mock
 * `Promises`
 * `this.children`
@@ -14,8 +17,7 @@ Moar React and Third Party Components
     * filters
     * computation/aggregation
   * `reselect` convenience methods
-* webpack proxy with two part path, `/albums/123`
-  * And what about ghpages?
+
 
 ## Third Party Components
 

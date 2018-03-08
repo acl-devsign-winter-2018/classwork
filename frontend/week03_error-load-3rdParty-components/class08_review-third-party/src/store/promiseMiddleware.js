@@ -18,6 +18,8 @@ export default ({ dispatch }) => next => action => {
         });
 
         dispatch({ type: LOAD_END });
+
+        return result;
       },
       err => {
         dispatch({ type: LOAD_END });
