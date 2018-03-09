@@ -39,12 +39,7 @@ export function notes(state = [], { type, payload }) {
     case NOTE_REMOVE:
       return state.filter(n => n.id !== payload);
     case NOTE_UPDATE: {
-      const index = state.findIndex(n => n.id === payload.id);
-      return [
-        ...state.slice(0, index),
-        { ...state[index], ...payload },
-        ...state.slice(index + 1)
-      ];
+      return state.map(n => n.id === payload.id ? payload : n);
     }
     default:
       return state;
