@@ -13,6 +13,7 @@ describe('albums reducer', () => {
   it('load albums', () => {
     const { type, payload } = loadAlbums();
     expect(type).toBe(ALBUMS_LOAD);
+    expect(api.getAlbums).toBeCalled();
     return payload.then(result => {
       expect(result).toBe('PAYLOAD');
     });
@@ -32,6 +33,7 @@ describe('albums reducer', () => {
     const id = 'ID';
     const { type, payload } = removeAlbum(id);
     expect(type).toBe(ALBUM_REMOVE);
+    expect(api.deleteAlbum).toBeCalledWith(id);
     return payload.then(result => {
       expect(result).toBe(id);
     });
