@@ -1,28 +1,29 @@
-export const LOAD_START = 'LOAD_START';
-export const LOAD_END = 'LOAD_END';
-export const ERROR = 'ERROR';
-export const ERROR_CLEAR = 'ERROR_CLEAR';
+export const SELECT = 'SELECT';
+export const END_GAME = 'END_GAME';
+export const NEW_GAME = 'NEW_GAME';
 
-export function loading(state = false, { type }) {
+export function selections(state = [], { type, payload }) {
   switch(type) {
-    case LOAD_START:
-      return true;
-    case LOAD_END: 
-      return false;
+    case SELECT: {
+      const { index, selection } = payload;
+      const copy = state.slice();
+      copy[index] = selection;
+      return copy;
+    }
+    case NEW_GAME:
+      return [];
     default:
       return state;
   }
 }
 
-const initialErrorState = null;
-
-export function error(state = initialErrorState, { type, payload }) {
+export function winner(state = null, { type, payload }) {
   switch(type) {
-    case ERROR: 
+    case END_GAME:
       return payload;
-    case LOAD_START:
-      return initialErrorState;
-    default: 
+    case NEW_GAME:
+      return null;
+    default:
       return state;
   }
 }

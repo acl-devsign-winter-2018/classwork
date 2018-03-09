@@ -1,10 +1,27 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { newGame } from './actions';
+import Player from './Player';
+import './App.css';
 
-export default class App extends Component {
+class App extends PureComponent {
 
   render() {
+    const { winner, newGame } = this.props;
+
     return (
-      <div>Hello React</div>
+      <section>
+        <div className="game">
+          <Player index={0} rock="a" paper="s" scissors="d"/>
+          <Player index={1} rock="l" paper=";" scissors="'"/>
+        </div>
+        <div>{ winner !== null && <button onClick={newGame}>New Game</button> }</div>
+      </section>
     );
   }
 }
+
+export default connect(
+  ({ winner }) => ({ winner }),
+  { newGame }
+)(App);

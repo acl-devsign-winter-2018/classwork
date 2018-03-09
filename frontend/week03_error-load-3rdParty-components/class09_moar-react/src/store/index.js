@@ -1,11 +1,11 @@
 import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { loading, error } from '../components/app/reducers';
 import promiseMiddleware from './promiseMiddleware';
+import { selections, winner } from '../components/app/reducers';
 
 const reducer = combineReducers({
-  loading,
-  error
+  selections,
+  winner
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
