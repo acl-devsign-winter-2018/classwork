@@ -52,11 +52,17 @@ class Note extends Component {
 }
 
 export default connect(
-  ({ commentsByNote }) => ({ commentsByNote }),
-  { updateNote, removeNote },
-  ({ commentsByNote }, actions, ownProps) => ({
-    ...actions,
-    ...ownProps,
-    count: commentsByNote[ownProps.id].length
-  })
+  // (state, props) => {
+  //   return object of props
+  // }
+  ({ commentsByNote }, { id }) => {
+    const comments = commentsByNote[id];
+    const count = comments.length;
+
+    return { 
+      comments,
+      count 
+    };
+  },
+  { updateNote, removeNote }
 )(Note);

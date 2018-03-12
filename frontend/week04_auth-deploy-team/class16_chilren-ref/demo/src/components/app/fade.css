@@ -1,0 +1,23 @@
+$slide-distance: 300px;
+
+.fade-enter {
+  // opacity: 0.01;
+  transform: translateX(-$slide-distance);
+}
+
+.fade-enter.fade-enter-active {
+  // opacity: 1;
+  transition: transform 500ms ease-out;
+  transform: translateX(0px);
+}
+
+.fade-leave {
+  // opacity: 1;
+  transform: translateX(0px);
+}
+
+.fade-leave.fade-leave-active {
+  // opacity: 0.01;
+  transition: transform 300ms ease-out;
+  transform: translateX($slide-distance);
+}

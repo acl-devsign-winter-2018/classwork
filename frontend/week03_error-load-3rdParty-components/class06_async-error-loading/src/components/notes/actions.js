@@ -16,6 +16,28 @@ export function loadNotes() {
   };
 }
 
+export function loadNotes2() {
+  return dispatch => {
+    dispatch({ type: 'LOAD_START' });
+
+    return notesApi.load()
+      .then(notes => {
+        dispatch({
+          type: NOTE_LOAD,
+          payload: notes
+        });
+
+        dispatch({ type: 'LOAD_END' });
+      })
+      .catch(err => {
+        dispatch({
+          type: 'ERROR',
+          payload: err
+        });
+      });
+  };
+}
+
 export function addNote(note) {
   return {
     type: NOTE_ADD,
