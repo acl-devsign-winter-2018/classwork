@@ -1,0 +1,41 @@
+.game {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.player {
+  width: 300px;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  margin: 5px;
+  overflow: hidden;
+}
+
+ul.key-list {
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+}
+
+kbd {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding: 3px;
+  margin-right: 10px;
+  text-align: center;
+  border: 1px solid #aaa;
+}
+
+.wrapper {
+  position: relative;
+
+  > span > * {
+    position: absolute;
+    top: 0;
+  }
+}
