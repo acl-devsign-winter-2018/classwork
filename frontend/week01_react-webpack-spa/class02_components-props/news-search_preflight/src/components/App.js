@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styles from './App.css';
+import Search from './Search';
+import Paging from './Paging';
+import Articles from './Articles';
 import { search } from '../services/newsApi';
 
 const PAGE_SIZE = 20;
@@ -7,7 +10,13 @@ const PAGE_SIZE = 20;
 export default class App extends Component {
 
   state = {
-    
+    articles: null,
+    topic: '',
+    page: 1,
+    perPage: 20,
+    totalResults: 0,
+    loading: false,
+    error: null
   };
 
   searchNews = () => {

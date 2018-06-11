@@ -1,23 +1,23 @@
 /* eslint-env node */
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const HtmlPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 
-const buildDir = 'docs';
+const buildDir = 'build';
 const path = `${__dirname}/${buildDir}`;
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path,
-    filename: 'bundle.js',//'bundle.[hash].js',
+    filename: 'bundle.[hash].js',
   },
   devServer: {
     contentBase: './${buildDir}',
   },
-  // devtool: 'inline-source-map',
+  devtool: 'inline-source-map',
   plugins: [
-    // new CleanWebpackPlugin(`${path}/bundle.*.js`), 
-    // new HtmlPlugin({ template: './src/index.html' })
+    new CleanWebpackPlugin(`${path}/bundle.*.js`), 
+    new HtmlPlugin({ template: './src/index.html' })
   ],
   module: {
     rules: [
@@ -40,19 +40,19 @@ module.exports = {
               importLoaders: 1 
             }
           },
-          // {
-          //   loader: 'postcss-loader',
-          //   options: { sourceMap: true }
-          // }
+          {
+            loader: 'postcss-loader',
+            options: { sourceMap: true }
+          }
         ]
       },
-      // {
-      //   test: /\.(jpg|png|svg)$/,
-      //   use: {
-      //     loader: 'url-loader',
-      //     options: { limit: 5000 },
-      //   },
-      // }
+      {
+        test: /\.(jpg|png|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: { limit: 5000 },
+        },
+      }
     ]
   }
 };
